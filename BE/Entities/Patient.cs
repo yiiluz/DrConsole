@@ -7,7 +7,7 @@ using static BE.Configurations.Enums;
 
 namespace BE.Entities
 {
-    class Patient : Person
+    public class Patient : Person
     {
         private List<Prescription> history;
 

@@ -8,7 +8,7 @@ using static BE.Configurations.Enums;
 
 namespace BE.Entities
 {
-    class Person
+    public class Person
     {
         private String firstName;
         private String lastName;

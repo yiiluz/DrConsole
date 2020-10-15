@@ -6,36 +6,44 @@ using System.Threading.Tasks;
 
 namespace BE.Entities
 {
-    class Drug
+    public class Drug
     {
-        private int rxcui;
-        private String name;
-        private String tty;
+        private ActiveIngredient activeIngerdient;
+        private string drugName;
+        private string manufacturer;
+        private int miligram;
+        private string imgSrc;
 
-        public Drug(int rxcui, string name, string tty)
+        public Drug(ActiveIngredient activeIngerdient, string drugName, string manufacturer, int miligram, string imgSrc)
         {
-            this.rxcui = rxcui;
-            this.name = name;
-            this.tty = tty;
+            this.activeIngerdient = activeIngerdient;
+            this.drugName = drugName;
+            this.manufacturer = manufacturer;
+            this.miligram = miligram;
+            this.imgSrc = imgSrc;
         }
 
-        public int Rxcui { get; set; }
-        public String Name { get; set; }
-        public String Tty { get; set; }
+        public ActiveIngredient DctiveIngerdient { get; set; }
+        public string DrugName { get; set; }
+        public int Miligram { get; set; }
+        private string Manufacturer { get; set; }
+        private string ImgSrc { get; set; }
 
         public override bool Equals(object obj)
         {
             var drug = obj as Drug;
             return drug != null &&
-                   rxcui == drug.rxcui &&
-                   name == drug.name &&
-                   tty == drug.tty;
+                   EqualityComparer<ActiveIngredient>.Default.Equals(activeIngerdient, drug.activeIngerdient) &&
+                   drugName == drug.drugName &&
+                   manufacturer == drug.manufacturer &&
+                   miligram == drug.miligram &&
+                   imgSrc == drug.imgSrc;
         }
 
         public override string ToString()
         {
-            return String.Format("Drug Name: {0}, RXCUI Code: {1}, TTY: {2}",
-                name, rxcui, tty);
+            return String.Format("Drug Name: {0}, Manufacturer: {1}, Ingredient: {2}, Miligram: {3}, Image Path: {4}.",
+                drugName, manufacturer,activeIngerdient, miligram, imgSrc);
         }
     }
 }

@@ -8,7 +8,7 @@ using static BE.Configurations.Enums;
 
 namespace BE.Entities
 {
-    class Doctor : User
+    public class Doctor : User
     {
         private int license;
         private DateTime graduation;

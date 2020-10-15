@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE.Entities
 {
-    class Prescription
+    public class Prescription
     {
         private DateTime date;
         private Dictionary<Drug, int> drugDurationPairs;
