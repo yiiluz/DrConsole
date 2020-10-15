@@ -8,6 +8,6 @@ namespace BL
 {
     interface IBL
     {
-         void hi();
+        void hi();
     }
 }
