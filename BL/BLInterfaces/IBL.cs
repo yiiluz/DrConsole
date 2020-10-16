@@ -1,19 +1,20 @@
-﻿using BE.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE.Entities;
 
-namespace DL
+namespace BL
 {
-    interface IDL
+    public interface IBL
     {
         // Admin
-        void AddAdmin(Admin admin);
+        void AddAdmin(Admin admin); 
         void AddPatient(Patient patient);
         void AddDoctor(Doctor doctor);
         void AddDrug(Drug drug);
+        List<Prescription> GetPrescriptionsByDateRange(DateTime start, DateTime end);
         List<Patient> GetAllPatients();
         List<Doctor> GetAllDoctors();
         List<Admin> GetAllAdmins();
@@ -24,6 +25,8 @@ namespace DL
         void AddPrescription(Prescription prescription);
 
         // General
+        List<Drug> GetPatientCurrentDrugs(string patientId);
+        List<Drug> GetAllPatientDrugs(string patientId);
         Patient GetPatient(string patientId);
         Doctor GetDoctor(string id);
         Drug GetDrug(string drugName);
