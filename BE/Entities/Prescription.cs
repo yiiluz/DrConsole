@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,26 +11,28 @@ namespace BE.Entities
     [Table("Prescriptions")]
     public class Prescription
     {
-        public Prescription(string prescriptionID, DateTime date, Dictionary<Drug, int> drugDurationPairs,
-            string patientComplaint, string doctorSummary, Patient patient, Doctor doctor)
+        public Prescription(DateTime date, Dictionary<Drug, int> drugDurationPairs,
+            string patientComplaint, string doctorSummary, int patientId, int doctorId)
         {
-            PrescriptionID = prescriptionID;
             Date = date;
             DrugDurationPairs = drugDurationPairs;
             PatientComplaint = patientComplaint;
             DoctorSummary = doctorSummary;
-            Patient = patient;
-            Doctor = doctor;
+            PatientID = patientId;
+            DoctorID = doctorId;
         }
 
+        [Key]
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.None)]
-        public string PrescriptionID { get; set; }
+        public int PrescriptionID { get; set; }
         public DateTime Date { get; set; }
         public Dictionary<Drug, int> DrugDurationPairs { get; set; }
         public String PatientComplaint { get; set; }
         public String DoctorSummary { get; set; }
-        public Patient Patient { get; set; }
-        public Doctor Doctor { get; set; }
+        public int PatientID { get; set; }
+        public int DoctorID { get; set; }
+
+
 
         public override bool Equals(object obj)
         {
@@ -39,15 +42,15 @@ namespace BE.Entities
                    EqualityComparer<Dictionary<Drug, int>>.Default.Equals(DrugDurationPairs, prescription.DrugDurationPairs) &&
                    PatientComplaint == prescription.PatientComplaint &&
                    DoctorSummary == prescription.DoctorSummary &&
-                   EqualityComparer<Patient>.Default.Equals(Patient, prescription.Patient) &&
-                   EqualityComparer<Doctor>.Default.Equals(Doctor, prescription.Doctor);
+                   PatientID == prescription.PatientID &&
+                   DoctorID == prescription.DoctorID;
         }
 
         public override string ToString()
         {
-            return String.Format("Date: {0}.\nPatient ID: {1}.\nDoctor: {2}.\n"
+            return String.Format("Date: {0}.\nPatient ID: {1}.\nDoctor ID: {2}.\n"
                 + "Drugs: {3}\nPatient complaint: {4}.\nDoctor Summary: {5}",
-                Date, Patient, Doctor, DrugDurationPairs, PatientComplaint, DoctorSummary);
+                Date, PatientID, DoctorID, DrugDurationPairs, PatientComplaint, DoctorSummary);
         }
     }
 }
