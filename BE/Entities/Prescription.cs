@@ -1,46 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BE.Entities
 {
-    class Prescription
+    [Table("Prescriptions")]
+    public class Prescription
     {
-        private DateTime date;
-        private Dictionary<Drug, int> drugDurationPairs;
-        private String patientComplaint;
-        private String doctorSummary;
-        private int patientId;
-        private int doctorId;
-        private int doctorLicense;
-
-        public Prescription(DateTime date, Dictionary<Drug, int> drugDurationPairs, string patientComplaint, 
-            string doctorSummary, int patientId, int doctorId, int doctorLicense)
+        public Prescription(string prescriptionID, DateTime date, Dictionary<Drug, int> drugDurationPairs,
+            string patientComplaint, string doctorSummary, Patient patient, Doctor doctor)
         {
-            this.date = date;
-            this.drugDurationPairs = drugDurationPairs;
-            this.patientComplaint = patientComplaint;
-            this.doctorSummary = doctorSummary;
-            this.patientId = patientId;
-            this.doctorId = doctorId;
-            this.doctorLicense = doctorLicense;
+            PrescriptionID = prescriptionID;
+            Date = date;
+            DrugDurationPairs = drugDurationPairs;
+            PatientComplaint = patientComplaint;
+            DoctorSummary = doctorSummary;
+            Patient = patient;
+            Doctor = doctor;
         }
 
+        [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.None)]
+        public string PrescriptionID { get; set; }
         public DateTime Date { get; set; }
         public Dictionary<Drug, int> DrugDurationPairs { get; set; }
         public String PatientComplaint { get; set; }
         public String DoctorSummary { get; set; }
-        public int PatientId { get; set; }
-        public int DoctorId { get; set; }
-        public int DoctorLicense { get; set; }
+        public Patient Patient { get; set; }
+        public Doctor Doctor { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Prescription prescription &&
+                   PrescriptionID == prescription.PrescriptionID &&
+                   Date == prescription.Date &&
+                   EqualityComparer<Dictionary<Drug, int>>.Default.Equals(DrugDurationPairs, prescription.DrugDurationPairs) &&
+                   PatientComplaint == prescription.PatientComplaint &&
+                   DoctorSummary == prescription.DoctorSummary &&
+                   EqualityComparer<Patient>.Default.Equals(Patient, prescription.Patient) &&
+                   EqualityComparer<Doctor>.Default.Equals(Doctor, prescription.Doctor);
+        }
 
         public override string ToString()
         {
-            return String.Format("Date: {0}.\nPatient ID: {1}.\nDoctor ID: {2}, License: {3}.\n"
-                + "Drugs: {4}\nPatient complaint: {5}.\nDoctor Summary: {6}",
-                date, patientId, doctorId, DoctorLicense, drugDurationPairs, patientComplaint, doctorSummary);
+            return String.Format("Date: {0}.\nPatient ID: {1}.\nDoctor: {2}.\n"
+                + "Drugs: {3}\nPatient complaint: {4}.\nDoctor Summary: {5}",
+                Date, Patient, Doctor, DrugDurationPairs, PatientComplaint, DoctorSummary);
         }
     }
 }

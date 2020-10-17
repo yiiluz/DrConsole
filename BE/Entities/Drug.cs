@@ -1,41 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BE.Entities
 {
-    class Drug
+    [Table("Drugs")]
+    public class Drug
     {
-        private int rxcui;
-        private String name;
-        private String tty;
-
-        public Drug(int rxcui, string name, string tty)
+        public Drug(int rxcui, string drugName, int miligram, string manufacturer, string imgSrc)
         {
-            this.rxcui = rxcui;
-            this.name = name;
-            this.tty = tty;
+            Rxcui = rxcui;
+            DrugName = drugName;
+            Miligram = miligram;
+            Manufacturer = manufacturer;
+            ImgSrc = imgSrc;
         }
 
         public int Rxcui { get; set; }
-        public String Name { get; set; }
-        public String Tty { get; set; }
+        [Key]
+        public string DrugName { get; set; }
+        public int Miligram { get; set; }
+        private string Manufacturer { get; set; }
+        private string ImgSrc { get; set; }
 
-        public override bool Equals(object obj)
-        {
-            var drug = obj as Drug;
-            return drug != null &&
-                   rxcui == drug.rxcui &&
-                   name == drug.name &&
-                   tty == drug.tty;
-        }
+        
 
         public override string ToString()
         {
-            return String.Format("Drug Name: {0}, RXCUI Code: {1}, TTY: {2}",
-                name, rxcui, tty);
+            return String.Format("Drug Name: {0}, Manufacturer: {1}, Ingredient: {2}, Miligram: {3}, Image Path: {4}.",
+                DrugName, Manufacturer,Rxcui, Miligram, ImgSrc);
         }
     }
 }
