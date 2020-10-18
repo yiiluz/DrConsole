@@ -1,12 +1,19 @@
-﻿<Window x:Class="DrConsole.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DrConsole"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:Login="clr-namespace:DrConsole.UserControls.Login" x:Class="DrConsole.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="700"
+        ui:WindowHelper.UseModernWindowStyle="True">
+
+    <ui:SimpleStackPanel Margin="12" Spacing="24">
+        <TextBlock Text="My first ModernWPF app" Style="{StaticResource HeaderTextBlockStyle}" />
+        <Button Content="I am a button" />
+        <Button Content="I am an accent button" Style="{StaticResource AccentButtonStyle}" />
+        <Login:Login HorizontalAlignment="Left" Height="287.2" VerticalAlignment="Top" Width="671.2"/>
+    </ui:SimpleStackPanel>
 </Window>
