@@ -54,17 +54,26 @@ namespace BL.BLObjects
 
         public List<Drug> GetAllPatientDrugs(string patientId)
         {
-            throw new NotImplementedException();
-        }
+            List<Drug> patientDrugs = new List<Drug>();
+            List<Prescription> allPrescriptions = DLObj.GetAllPrescriptions();
+            foreach (Prescription pres in allPrescriptions)
+            {
+                if (pres.PatientID.ToString() == patientId)
+
+                    //TODO ..............................
+                    ;
+            }
+                
+               }
 
         public List<Patient> GetAllPatients()
         {
-            throw new NotImplementedException();
+            return DLObj.GetAllPatients();
         }
 
         public List<Prescription> GetAllPrescriptions()
         {
-            throw new NotImplementedException();
+            return DLObj.GetAllPrescriptions();
         }
 
         public Doctor GetDoctor(string id)
