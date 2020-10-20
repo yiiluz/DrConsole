@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrConsole.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace DrConsole.UserControls.Login
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class LoginUserControl : UserControl
     {
-        public Login()
+        public LoginUserControl()
         {
             InitializeComponent();
+            this.DataContext = new LoginViewModel();
         }
     }
 }
