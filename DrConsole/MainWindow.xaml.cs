@@ -43,5 +43,10 @@ namespace DrConsole
             //Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", "his head hurts", 209492065, 111222333);
             //BLObj.AddPrescription(pr);
         }
+
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

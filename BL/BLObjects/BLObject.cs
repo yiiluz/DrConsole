@@ -63,8 +63,9 @@ namespace BL.BLObjects
                     //TODO ..............................
                     ;
             }
-                
-               }
+            return patientDrugs;
+
+        }
 
         public List<Patient> GetAllPatients()
         {
