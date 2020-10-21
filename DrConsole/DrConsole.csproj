@@ -62,6 +62,9 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Login\LoginCommand.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="UserControls\Doctor\personalInfoUserControl.xaml.cs">
+      <DependentUpon>personalInfoUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Login\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,7 @@
       <DependentUpon>WelcomeUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\personalInfoViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +85,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Doctor\personalInfoUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Login\LoginUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,7 +156,6 @@
     <Folder Include="Commands\Doctor\" />
     <Folder Include="Converters\" />
     <Folder Include="UserControls\Admin\" />
-    <Folder Include="UserControls\Doctor\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>

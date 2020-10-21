@@ -49,5 +49,10 @@ namespace DrConsole
             //BLObj.AddPrescription(pr);
             ((App)App.Current).Properties["mainWindow"] = this;
         }
+
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
