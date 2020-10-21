@@ -1,6 +1,7 @@
 ﻿using BE.Entities;
 using BL;
 using BL.BLObjects;
+using DrConsole.UserControls.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,9 @@ namespace DrConsole
         public MainWindow()
         {
             InitializeComponent();
+            LoginStackPanel.Children.Clear();
+            LoginStackPanel.Children.Add(new LoginUserControl());
+
             //DateTime x = new DateTime(1997, 12, 23);
             //Address a = new Address("Israel", "Elad", "Rabbi Meir", 16, 1);
             //Address ab = new Address("Israel", "Elad", "Rabbi Meir", 16, 2);

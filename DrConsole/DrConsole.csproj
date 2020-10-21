@@ -60,9 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="UserControls\Login\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="UserControls\Login\LoginUserControl.xaml.cs">
+      <DependentUpon>LoginUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -77,7 +78,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\Login\Login.xaml">
+    <Page Include="UserControls\Login\LoginUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,6 +126,9 @@
     <PackageReference Include="ModernWpfUI">
       <Version>0.9.2</Version>
     </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>7.2.0.1422</Version>
+    </PackageReference>
     <PackageReference Include="System.Runtime.WindowsRuntime">
       <Version>4.6.0</Version>
     </PackageReference>
@@ -133,7 +137,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Converters\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pills.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
