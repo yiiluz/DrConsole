@@ -11,6 +11,7 @@ namespace BE.Entities
     [Table("Addresses")]
     public class Address
     {
+        public Address() { }
         public Address(string country, string City, string street, int buildingNumber, int apartmentNumber)
         {
             Country = country;

@@ -13,7 +13,8 @@ namespace BE.Entities
     {
         private List<Prescription> history;
 
-        public Patient(List<Prescription> history, string firstName, string lastName, Gender gender, int id, Address address, DateTime birthDate)
+        public Patient() { }
+        public Patient(List<Prescription> history, string firstName, string lastName, Gender gender, String id, Address address, DateTime birthDate)
             : base(firstName, lastName, gender, id, address, birthDate)
         {
             this.history = history;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.Entities;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace DrConsole
     /// </summary>
     public partial class App : Application
     {
+        public User currentUser = null;
     }
 }

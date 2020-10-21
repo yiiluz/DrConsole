@@ -12,18 +12,20 @@ namespace BE.Entities
     [Table("Users")]
     public class User : Person
     {
-
+        private string userName;
+        public User() { }
         public User(string userName, string password, 
-            string firstName, string lastName, Gender gender, int id, Address address, DateTime birthDate) 
+            string firstName, string lastName, Gender gender, String id, Address address, DateTime birthDate) 
             : base(firstName, lastName, gender, id, address, birthDate)
         {
-            this.UserName = userName;
+            this.userName = userName.ToLower();
             this.Password = password;
         }
 
         [Key, Column(Order = 1)]
-        public String UserName { get; set; }
+        public String UserName { get { return this.userName; } set { this.userName = value.ToLower(); } }
         public String Password { get; set; }
+        public UserType UserType { get; set; }
 
         public override bool Equals(object obj)
         {

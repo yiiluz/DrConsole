@@ -11,6 +11,7 @@ namespace BE.Entities
     [Table("ActiveIngredients")]
     public class ActiveIngredient
     {
+        public ActiveIngredient() { }
         public ActiveIngredient(int rxcui, string name, string tty)
         {
             Rxcui = rxcui;

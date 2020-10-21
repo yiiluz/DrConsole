@@ -23,5 +23,11 @@ namespace BE.Configurations
             SURGEON,
             ORTHOPEDICS
         }
+
+        public enum UserType
+        {
+            DOCTOR,
+            ADMIN
+        }
     }
 }

@@ -13,15 +13,16 @@ namespace BE.Entities
     [Table("Doctors")]
     public class Doctor : User
     {
-
+        public Doctor() { }
         public Doctor(string userName, string password, string firstName, string lastName, Gender gender, 
-            int id, Address address, DateTime birthDate, int license, DateTime graduation, Expertise expertise)
+            String id, Address address, DateTime birthDate, int license, DateTime graduation, Expertise expertise)
             : base(userName, password, firstName, lastName, gender, id, address, birthDate)
 
         {
             this.License = license;
             this.Graduation = graduation;
             this.Expertise = expertise;
+            this.UserType = UserType.DOCTOR;
         }
 
         [Key, Column(Order = 2)]
