@@ -1,6 +1,7 @@
 ﻿using BE.Entities;
 using BL;
 using BL.BLObjects;
+using DrConsole.UserControls;
 using DrConsole.UserControls.Login;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,8 @@ namespace DrConsole
         public MainWindow()
         {
             InitializeComponent();
-            LoginStackPanel.Children.Clear();
-            LoginStackPanel.Children.Add(new LoginUserControl());
+            LoginContainer.Children.Add(new LoginUserControl());
+            HeaderContainer.Children.Add(new WelcomeUserControl());
 
             DateTime x = new DateTime(1997, 12, 23);
             Address a = new Address("Israel", "Elad", "Rabbi Meir", 16, 1);
@@ -40,12 +41,13 @@ namespace DrConsole
             Dictionary<Drug, int> dict = new Dictionary<Drug, int>();
             Patient p = new Patient(l, "Yitzhak", "Iluz", Gender.MALE, "209492065",
                 a, x);
-            BLObj.AddPatient(p);
+            //BLObj.AddPatient(p);
             Doctor d = new Doctor("yona", "1111", "Yonatan", "Cohen", Gender.MALE, "111222333",
                 ab, new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertise.FAMILY);
-            BLObj.AddDoctor(d);
+            //BLObj.AddDoctor(d);
             Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", "his head hurts", 209492065, 111222333);
-            BLObj.AddPrescription(pr);
+            //BLObj.AddPrescription(pr);
+            ((App)App.Current).Properties["mainWindow"] = this;
         }
     }
 }

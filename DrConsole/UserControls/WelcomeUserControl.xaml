@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="DrConsole.UserControls.WelcomeUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrConsole.UserControls"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+    <Grid>
+        <TextBlock Text="Wellcome to Dr. Consol, Please Log In to Continue" Style="{StaticResource HeaderTextBlockStyle}"/>
+    </Grid>
+</UserControl>

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DrConsole
 {
@@ -15,5 +16,11 @@ namespace DrConsole
     public partial class App : Application
     {
         public User currentUser = null;
+        public MainWindow mainWindow = null;
+
+        public void ClearAllContainers()
+        {
+            foreach (DockPanel dock in mainWindow.G)
+        }
     }
 }

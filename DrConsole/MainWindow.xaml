@@ -7,35 +7,31 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:Login="clr-namespace:DrConsole.UserControls.Login" x:Class="DrConsole.MainWindow"
         mc:Ignorable="d"
-        Title="Dr. Console" Height="650" Width="700"
+        Title="Dr. Console" Height="735" Width="1200"
         ui:WindowHelper.UseModernWindowStyle="True"
         WindowState="Maximized"
         ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="/Images/Background.jpg" Stretch="Fill" Opacity="5"/>
     </Window.Background>
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.Background>
-            <SolidColorBrush Color="White" Opacity="0.8"/>
+            <SolidColorBrush Color="White" Opacity="0.9"/>
         </Grid.Background>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <ui:SimpleStackPanel x:Name="LoginStackPanel" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock Text="Wellcome to Dr. Console dashboard. Please log in." HorizontalAlignment="Center" Margin="50" x:Name="LoginHeader" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource HeaderTextBlockStyle}"/>
+        <DockPanel HorizontalAlignment="Left" Height="100" Margin="769,398,0,0" VerticalAlignment="Top" Width="100" LastChildFill="False"/>
+        <DockPanel x:Name="HeaderContainer" Height="74" LastChildFill="True" VerticalAlignment="Top" Width="1194" Margin="0,0,-0.4,0"/>
+        <DockPanel x:Name="UserDetailsContainer" HorizontalAlignment="Left" LastChildFill="False" Margin="0,74,0,0.4" Width="231"/>
+        <DockPanel x:Name="HomeContainer" LastChildFill="False" Margin="231,74,-0.4,0.4"/>
+        <DockPanel x:Name="LoginContainer" HorizontalAlignment="Center" Height="210" Margin="0" VerticalAlignment="Center" Width="250"/>
+        <!--<ui:SimpleStackPanel x:Name="LoginStackPanel" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="Wellcome to Dr. Console dashboard. Please log in." HorizontalAlignment="Center" Margin="50" x:Name="LoginHeader" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource HeaderTextBlockStyle}"/>-->
     </Grid>
     <!--<ui:SimpleStackPanel Margin="12" Spacing="24">
-        --><!--<TextBlock Text="My first ModernWPF app" Style="{StaticResource HeaderTextBlockStyle}" />
+        -->
+    <!--<TextBlock Text="My first ModernWPF app" Style="{StaticResource }" />
         <Button Content="I am a button" />
-        <Button Content="I am an accent button" Style="{StaticResource AccentButtonStyle}" />--><!--
+        <Button Content="I am an accent button" Style="{StaticResource AccentButtonStyle}" />-->
+    <!--
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
