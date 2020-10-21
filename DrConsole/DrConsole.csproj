@@ -60,7 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\Login\LoginCommand.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="UserControls\Login\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>
@@ -137,7 +137,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Commands\Admin\" />
+    <Folder Include="Commands\Doctor\" />
     <Folder Include="Converters\" />
+    <Folder Include="UserControls\Admin\" />
+    <Folder Include="UserControls\Doctor\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>

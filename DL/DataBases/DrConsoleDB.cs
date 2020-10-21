@@ -10,6 +10,10 @@ namespace DL.DataBases
 {
     class DrConsoleDB : DbContext
     {
+        public DrConsoleDB() : base ("DrConsoleDB")
+        {
+        }
+
         public DbSet<Doctor> DoctorsDB { get; set; }
         public DbSet<Patient> PatientsDB { get; set; }
         public DbSet<Admin> AdminsDB { get; set; }

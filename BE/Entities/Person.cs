@@ -13,7 +13,8 @@ namespace BE.Entities
     [Table("Persons")]
     public class Person
     {
-        public Person(string firstName, string lastName, Gender gender, int iD, Address address, DateTime birthDate)
+        public Person() { }
+        public Person(string firstName, string lastName, Gender gender, String iD, Address address, DateTime birthDate)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -27,7 +28,7 @@ namespace BE.Entities
         public String LastName { get; set; }
         public Gender Gender { get; set; }
         [Key, Column(Order = 0)]
-        public int ID { get; set; }
+        public String ID { get; set; }
         public Address Address { get; set; }
         public DateTime BirthDate { get; set; }
         public int Age

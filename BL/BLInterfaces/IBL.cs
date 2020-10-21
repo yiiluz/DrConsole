@@ -30,5 +30,6 @@ namespace BL
         Patient GetPatient(string patientId);
         Doctor GetDoctor(string id);
         Drug GetDrug(string drugName);
+        User GetUserByUsernameAndPassword(string userName, string password);
     }
 }

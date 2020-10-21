@@ -11,6 +11,10 @@
         <TextBox x:Name="UserNameTextBox" Height="32" TextWrapping="Wrap" Width="200"/>
         <TextBlock Height="16" TextWrapping="Wrap" Text="Password:"/>
         <PasswordBox x:Name="PasswordTextBox" Height="32" Width="200"/>
-        <Button HorizontalAlignment="Center" Content="Login" Command="{Binding LoginClickCommand}" CommandParameter="{Binding Text, ElementName=UserNameTextBox}" Height="31.2"/>
+        <Button HorizontalAlignment="Center" Content="Login" Command="{Binding LoginClickCommand}" 
+                CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:LoginUserControl}}}" Height="31.2"/>
     </ui:SimpleStackPanel>
 </UserControl>

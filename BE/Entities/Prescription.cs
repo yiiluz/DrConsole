@@ -11,6 +11,7 @@ namespace BE.Entities
     [Table("Prescriptions")]
     public class Prescription
     {
+        public Prescription() { }
         public Prescription(DateTime date, Dictionary<Drug, int> drugDurationPairs,
             string patientComplaint, string doctorSummary, int patientId, int doctorId)
         {

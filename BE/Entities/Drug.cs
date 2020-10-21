@@ -11,6 +11,7 @@ namespace BE.Entities
     [Table("Drugs")]
     public class Drug
     {
+        public Drug() { }
         public Drug(int rxcui, string drugName, int miligram, string manufacturer, string imgSrc)
         {
             Rxcui = rxcui;

@@ -58,13 +58,12 @@ namespace BL.BLObjects
             List<Prescription> allPrescriptions = DLObj.GetAllPrescriptions();
             foreach (Prescription pres in allPrescriptions)
             {
-                if (pres.PatientID.ToString() == patientId)
-
-                    //TODO ..............................
-                    ;
+                if (pres.PatientID.ToString().Equals(patientId)){
+                    // TODO --------------------------------------------------------------------
+                }
+               
             }
-            return patientDrugs;
-
+            return null;
         }
 
         public List<Patient> GetAllPatients()
@@ -100,6 +99,28 @@ namespace BL.BLObjects
         public List<Prescription> GetPrescriptionsByDateRange(DateTime start, DateTime end)
         {
             throw new NotImplementedException();
+        }
+
+        public User GetUserByUsernameAndPassword(string userName, string password)
+        {
+            userName = userName.ToLower();
+            User user = null;
+            foreach(Admin admin in DLObj.GetAllAdmins())
+            {
+                if (admin.UserName.Equals(userName) && admin.Password.Equals(password))
+                    user = admin;
+            }
+            if (user == null)
+            {
+                foreach (Doctor doctor in DLObj.GetAllDoctors())
+                {
+                    if (doctor.UserName.Equals(userName) && doctor.Password.Equals(password))
+                        user = doctor;
+                }
+            }
+            if (user == null)
+                throw new AccessViolationException("No Such User");
+            return user;
         }
     }
 }
