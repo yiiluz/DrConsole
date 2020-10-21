@@ -19,12 +19,12 @@ namespace DrConsole.UserControls.Doctor
     /// <summary>
     /// Interaction logic for personalInfoUserControl.xaml
     /// </summary>
-    public partial class personalInfoUserControl : UserControl
+    public partial class DoctorDetailsUC : UserControl
     {
-        public personalInfoUserControl()
+        public DoctorDetailsUC(BE.Entities.Doctor doctor)
         {
             InitializeComponent();
-            this.DataContext = new personalInfoViewModel();
+            this.DataContext = new DoctorDetailsViewModel(doctor);
         }
     }
 }

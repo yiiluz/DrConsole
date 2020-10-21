@@ -41,6 +41,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,10 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Async\IErrorHandler.cs" />
+    <Compile Include="Async\TaskUtilities.cs" />
     <Compile Include="Commands\Login\LoginCommand.cs" />
+    <Compile Include="Async\IAsyncCommand.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="UserControls\Doctor\personalInfoUserControl.xaml.cs">
-      <DependentUpon>personalInfoUserControl.xaml</DependentUpon>
+    <Compile Include="UserControls\User\UserDetailsUC.xaml.cs">
+      <DependentUpon>UserDetailsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Doctor\DoctorDetailsUC.xaml.cs">
+      <DependentUpon>DoctorDetailsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Login\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>
@@ -71,8 +78,9 @@
     <Compile Include="UserControls\WelcomeUserControl.xaml.cs">
       <DependentUpon>WelcomeUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\UserDetailsViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\personalInfoViewModel.cs" />
+    <Compile Include="ViewModels\DoctorDetailsViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,7 +93,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\Doctor\personalInfoUserControl.xaml">
+    <Page Include="UserControls\User\UserDetailsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Doctor\DoctorDetailsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

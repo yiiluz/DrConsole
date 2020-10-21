@@ -20,7 +20,13 @@ namespace DrConsole
 
         public void ClearAllContainers()
         {
-            foreach (DockPanel dock in mainWindow.G)
+            foreach (var dock in mainWindow.mainGrid.Children)
+            {
+                if (dock is DockPanel)
+                {
+                    ((DockPanel)dock).Children.Clear();
+                }
+            }
         }
     }
 }

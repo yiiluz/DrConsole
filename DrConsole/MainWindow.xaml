@@ -18,11 +18,25 @@
         <Grid.Background>
             <SolidColorBrush Color="White" Opacity="0.9"/>
         </Grid.Background>
-        <DockPanel HorizontalAlignment="Left" Height="100" Margin="769,398,0,0" VerticalAlignment="Top" Width="100" LastChildFill="False"/>
-        <DockPanel x:Name="HeaderContainer" Height="74" LastChildFill="True" VerticalAlignment="Top" Width="1194" Margin="0,0,-0.4,0"/>
-        <DockPanel x:Name="UserDetailsContainer" HorizontalAlignment="Left" LastChildFill="False" Margin="0,74,0,0.4" Width="231"/>
-        <DockPanel x:Name="HomeContainer" LastChildFill="False" Margin="231,74,-0.4,0.4"/>
-        <DockPanel x:Name="LoginContainer" HorizontalAlignment="Center" Height="210" Margin="0" VerticalAlignment="Center" Width="250"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel HorizontalAlignment="Left" Height="100" Margin="769,398,0,0" VerticalAlignment="Top" />
+        <DockPanel x:Name="HeaderContainer" Grid.Row="0" Grid.ColumnSpan="5"/>
+        <StackPanel Margin="30" Orientation="Vertical" x:Name="UserDetailsContainer" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4"/>
+        <DockPanel x:Name="HomeContainer" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4"/>
+        <DockPanel x:Name="LoginContainer" Grid.Row="2" Grid.Column="2"/>
         <!--<ui:SimpleStackPanel x:Name="LoginStackPanel" Grid.Row="1" Grid.Column="1"/>
         <TextBlock Text="Wellcome to Dr. Console dashboard. Please log in." HorizontalAlignment="Center" Margin="50" x:Name="LoginHeader" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource HeaderTextBlockStyle}"/>-->
     </Grid>

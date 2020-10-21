@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="DrConsole.UserControls.User.UserDetailsUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrConsole.UserControls.User"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             mc:Ignorable="d" 
+             d:DesignHeight="330" d:DesignWidth="180">
+    <ui:SimpleStackPanel Orientation="Vertical" Margin="10">
+        <TextBlock Text="User Information" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
+        <Label Content="Username:"/>
+        <TextBox IsEnabled="False" Text="{Binding Path=User.UserName}" Margin="0,0,0,5"/>
+        <Label Content="Full Name:"/>
+        <TextBox IsEnabled="False" Text="{Binding Path=User.FullName, Mode=OneWay}" Margin="0,0,0,5"/>
+        <Label Content="ID:"/>
+        <TextBox IsEnabled="False" Text="{Binding Path=User.ID}" Margin="0,0,0,10"/>
+        <Label Content="Address:"/>
+        <TextBox IsEnabled="False" Text="{Binding Path=User.Address}" Margin="0,0,0,5"/>
+        <Label Content="Birth Date:"/>
+        <TextBox IsEnabled="False" Text="{Binding Path=User.BirthDate}" Margin="0,0,0,5"/>
+    </ui:SimpleStackPanel>
+</UserControl>

@@ -27,7 +27,8 @@ namespace BE.Configurations
         public enum UserType
         {
             DOCTOR,
-            ADMIN
+            ADMIN,
+            PATIENT
         }
     }
 }

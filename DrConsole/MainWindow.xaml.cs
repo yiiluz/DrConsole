@@ -29,6 +29,7 @@ namespace DrConsole
         IBL BLObj = new BLObject();
         public MainWindow()
         {
+            ((App)App.Current).mainWindow = this;
             InitializeComponent();
             LoginContainer.Children.Add(new LoginUserControl());
             HeaderContainer.Children.Add(new WelcomeUserControl());
@@ -36,7 +37,6 @@ namespace DrConsole
             DateTime x = new DateTime(1997, 12, 23);
             Address a = new Address("Israel", "Elad", "Rabbi Meir", 16, 1);
             Address ab = new Address("Israel", "Elad", "Rabbi Meir", 16, 2);
-
             List<Prescription> l = new List<Prescription>();
             Dictionary<Drug, int> dict = new Dictionary<Drug, int>();
             Patient p = new Patient(l, "Yitzhak", "Iluz", Gender.MALE, "209492065",
@@ -47,12 +47,6 @@ namespace DrConsole
             //BLObj.AddDoctor(d);
             Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", "his head hurts", 209492065, 111222333);
             //BLObj.AddPrescription(pr);
-            ((App)App.Current).Properties["mainWindow"] = this;
-        }
-
-        private void Login_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

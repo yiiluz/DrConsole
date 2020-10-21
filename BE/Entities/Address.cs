@@ -21,15 +21,13 @@ namespace BE.Entities
             ApartmentNumber = apartmentNumber;
         }
 
-        [Key, Column(Order = 0)]
-        public String Country {   get;    set;    }
-        [Key, Column(Order = 1)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int AddressKey { get; set; }
+        public String Country { get;    set; }
         public String City { get; set; }
-        [Key, Column(Order = 2)]
         public String Street { get; set; }
-        [Key, Column(Order = 3)]
         public int BuildingNumber { get; set; }
-        [Key, Column(Order = 4)]
         public int ApartmentNumber { get; set; }
 
         public override bool Equals(object obj)

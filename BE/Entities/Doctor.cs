@@ -21,14 +21,14 @@ namespace BE.Entities
         {
             this.License = license;
             this.Graduation = graduation;
-            this.Expertise = expertise;
+            this.Expertize = expertise;
             this.UserType = UserType.DOCTOR;
         }
 
         [Key, Column(Order = 2)]
         public int License { get; set; }
         public DateTime Graduation { get; set; }
-        public Expertise Expertise { get; set; }
+        public Expertise Expertize { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -36,13 +36,13 @@ namespace BE.Entities
                    base.Equals(obj) &&
                    License == doctor.License &&
                    Graduation == doctor.Graduation &&
-                   Expertise == doctor.Expertise;
+                   Expertize == doctor.Expertize;
         }
 
         public override string ToString()
         {
             return String.Format("License Number: {0}, Expertise: {1}, Graduation: {2}, {3}",
-                License, Expertise, Graduation, base.ToString());
+                License, Expertize, Graduation, base.ToString());
         }
     }
 }

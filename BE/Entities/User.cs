@@ -25,7 +25,6 @@ namespace BE.Entities
         [Key, Column(Order = 1)]
         public String UserName { get { return this.userName; } set { this.userName = value.ToLower(); } }
         public String Password { get; set; }
-        public UserType UserType { get; set; }
 
         public override bool Equals(object obj)
         {

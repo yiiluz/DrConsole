@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace DrConsole.ViewModels
 {
-    class personalInfoViewModel
+    public class UserDetailsViewModel
     {
-        BE.Entities.Doctor doctor=(Doctor)((App)App.Current).Properties["currentUser"];
+        public User User { get; set; }
+        public UserDetailsViewModel(User user)
+        {
+            this.User = user;
+        }
     }
 }

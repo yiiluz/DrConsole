@@ -11,10 +11,6 @@ namespace DL.DLObjects
 {
     public class DLObject : IDL
     {
-        public DLObject()
-        {
-            Database.SetInitializer<DrConsoleDB>(new DropCreateDatabaseIfModelChanges<DrConsoleDB>());
-        }
         public void AddAdmin(Admin admin)
         {
             using (var db = new DrConsoleDB())

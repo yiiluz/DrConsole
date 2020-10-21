@@ -31,6 +31,9 @@ namespace BE.Entities
         public String ID { get; set; }
         public Address Address { get; set; }
         public DateTime BirthDate { get; set; }
+        public String FullName { get { return String.Format("{0} {1}", FirstName, LastName); } }
+        public UserType UserType { get; set; }
+
         public int Age
         {
             get
@@ -53,7 +56,7 @@ namespace BE.Entities
 
         public override string ToString()
         {
-            return String.Format("Name: {0} {1}, ID: {2}, Gender: {4}, Adress: {5}, Birth Date: {6}, Age: {7}.",
+            return String.Format("Name: {0} {1}, ID: {2}, Gender: {3}, Adress: {4}, Birth Date: {5}, Age: {6}.",
                 FirstName, LastName, ID, Gender, Address, BirthDate, Age);
         }
     }

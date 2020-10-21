@@ -18,6 +18,7 @@ namespace BE.Entities
             : base(firstName, lastName, gender, id, address, birthDate)
         {
             this.history = history;
+            this.UserType = UserType.PATIENT;
         }
     }
 }

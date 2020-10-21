@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DrConsole.UserControls.Login"
              mc:Ignorable="d"
-             Height="210" Width="250"
+             Height="230" Width="250"
              HorizontalAlignment="Center" VerticalAlignment="Center"
              xmlns:ui="http://schemas.modernwpf.com/2019">
     <ui:SimpleStackPanel Margin="12" Spacing="12" Orientation="Vertical" HorizontalAlignment="Center">
@@ -13,10 +13,11 @@
         <TextBox x:Name="UserNameTextBox" Height="32" TextWrapping="Wrap" Width="200"/>
         <TextBlock Height="16" TextWrapping="Wrap" Text="Password:"/>
         <PasswordBox x:Name="PasswordTextBox" Height="32" Width="200"/>
-        <Button HorizontalAlignment="Center" Content="Login" Command="{Binding LoginClickCommand}" 
+        <Button x:Name="loginButton" HorizontalAlignment="Stretch" Content="Login" Command="{Binding LoginClickCommand}" 
                 CommandParameter="{Binding RelativeSource=
                                    {RelativeSource
                                     Mode=FindAncestor,
                                     AncestorType={x:Type local:LoginUserControl}}}" Height="31.2"/>
+        <ui:ProgressBar x:Name="loginProgressRing" FlowDirection="LeftToRight"/>
     </ui:SimpleStackPanel>
 </UserControl>
