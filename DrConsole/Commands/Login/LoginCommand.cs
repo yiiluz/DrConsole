@@ -53,8 +53,6 @@ namespace DrConsole.Commands
                         break;
 
                 }
-                MessageBox.Show(String.Format("User Name: {0}, Password: {1}.", userName, pass));
-                // Doctor / Admin Controls
             }
             catch (Exception e)
             {
