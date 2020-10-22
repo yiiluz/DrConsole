@@ -23,6 +23,7 @@ namespace DrConsole.ViewModels
     {
 
         private BLObject BLObj = new BLObject();
+        private LoginModel loginModel = new LoginModel();
 
         public IAsyncCommand<object> LoginClickCommand { get; set; }
 
@@ -75,7 +76,7 @@ namespace DrConsole.ViewModels
         {
             try
             {
-                BE.Entities.User user = BLObj.GetUserByUsernameAndPassword(userName, pass);
+                BE.Entities.User user = loginModel.GetUserByUsernameAndPassword(userName,pass);
                 ((App)App.Current).Properties["currentUser"] = user;
                 return user;
             }

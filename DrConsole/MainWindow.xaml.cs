@@ -35,17 +35,19 @@ namespace DrConsole
             HeaderContainer.Children.Add(new WelcomeUserControl());
 
             DateTime x = new DateTime(1997, 12, 23);
-            Address a = new Address("Israel", "Elad", "Rabbi Meir", 16, 1);
-            Address ab = new Address("Israel", "Elad", "Rabbi Meir", 16, 2);
+            Address a = new Address(4080716, "Israel", "Elad", "Rabbi Meir", 16, 1);
             List<Prescription> l = new List<Prescription>();
             Dictionary<Drug, int> dict = new Dictionary<Drug, int>();
             Patient p = new Patient(l, "Yitzhak", "Iluz", Gender.MALE, "209492065",
                 a, x);
             //BLObj.AddPatient(p);
+            Address ab = new Address(4080716, "Israel", "Elad", "Rabbi Meir", 16, 2);
+
             Doctor d = new Doctor("yona", "1111", "Yonatan", "Cohen", Gender.MALE, "111222333",
                 ab, new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertise.FAMILY);
             //BLObj.AddDoctor(d);
-            Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", "his head hurts", 209492065, 111222333);
+            Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", 
+                "his head hurts", 209492065, 111222333);
             //BLObj.AddPrescription(pr);
         }
     }

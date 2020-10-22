@@ -12,6 +12,7 @@ namespace DL.DataBases
     {
         public DrConsoleDB() : base ("DrConsoleDB")
         {
+            Database.SetInitializer<DrConsoleDB>(new DropCreateDatabaseIfModelChanges<DrConsoleDB>());
         }
 
         public DbSet<Doctor> DoctorsDB { get; set; }

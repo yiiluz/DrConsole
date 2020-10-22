@@ -11,15 +11,14 @@ namespace DrConsole.Models
     class LoginModel
     {
         private BLObject BLObj;
-        public List<Doctor> DoctorsList { get; set; }
-        public List<Admin> AdminsList { get; set; }
-
 
         public LoginModel()
         {
             BLObj = new BLObject();
-            DoctorsList = BLObj.GetAllDoctors();
-            AdminsList = BLObj.GetAllAdmins();
+        }
+        public User GetUserByUsernameAndPassword(string userName,string pass)
+        {
+            return BLObj.GetUserByUsernameAndPassword(userName, pass);
         }
     }
     

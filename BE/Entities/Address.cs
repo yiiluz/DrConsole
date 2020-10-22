@@ -12,22 +12,23 @@ namespace BE.Entities
     public class Address
     {
         public Address() { }
-        public Address(string country, string City, string street, int buildingNumber, int apartmentNumber)
+        public Address(int zipCode, string country, string City, string street, int buildingNumber, int apartmentNumber)
         {
-            Country = country;
+            this.ZipCode = zipCode;
+            this.Country = country;
             this.City = City;
-            Street = street;
-            BuildingNumber = buildingNumber;
-            ApartmentNumber = apartmentNumber;
+            this.Street = street;
+            this.BuildingNumber = buildingNumber;
+            this.ApartmentNumber = apartmentNumber;
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int AddressKey { get; set; }
+        [Key, Column(Order =0)]
+        public int ZipCode { get; set; }
         public String Country { get;    set; }
         public String City { get; set; }
         public String Street { get; set; }
         public int BuildingNumber { get; set; }
+        [Key, Column(Order = 1)]
         public int ApartmentNumber { get; set; }
 
         public override bool Equals(object obj)
