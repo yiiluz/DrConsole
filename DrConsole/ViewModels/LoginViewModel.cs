@@ -16,6 +16,7 @@ using System.Windows.Controls;
 using System.Drawing;
 using Windows.UI.Xaml.Media;
 using System.Windows.Media;
+using DrConsole.UserControls;
 
 namespace DrConsole.ViewModels
 {
@@ -57,9 +58,12 @@ namespace DrConsole.ViewModels
                 {
                     ((App)(App.Current)).ClearAllContainers();
                     StackPanel UserDetailsContainer = ((MainWindow)(((App)App.Current).mainWindow)).UserDetailsContainer;
+                    DockPanel HeaderContainer = ((MainWindow)(((App)App.Current).mainWindow)).HeaderContainer;
                     UserDetailsContainer.Children.Clear();
                     UserDetailsContainer.Children.Add(new UserDetailsUC(user));
                     UserDetailsContainer.Children.Add(new DoctorDetailsUC((Doctor)user));
+                    HeaderContainer.Children.Clear();
+                    HeaderContainer.Children.Add(new ExitUC());
                 }
                 Admin admin = user as Admin;
                 if (admin != null)
