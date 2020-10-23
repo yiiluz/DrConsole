@@ -31,5 +31,7 @@ namespace BL
         Doctor GetDoctor(string id);
         Drug GetDrug(string drugName);
         User GetUserByUsernameAndPassword(string userName, string password);
+        List<User> GetAllUsers();
+        List<Person> GetAllPersons();
     }
 }

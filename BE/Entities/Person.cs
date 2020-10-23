@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE.Configurations;
-using static BE.Configurations.Enums;
 
 namespace BE.Entities
 {
@@ -20,7 +19,7 @@ namespace BE.Entities
             LastName = lastName;
             Gender = gender;
             ID = iD;
-            Address = address;
+            PersonAddress = address;
             BirthDate = birthDate;
         }
 
@@ -29,7 +28,7 @@ namespace BE.Entities
         public Gender Gender { get; set; }
         [Key, Column(Order = 0)]
         public String ID { get; set; }
-        public Address Address { get; set; }
+        public Address PersonAddress { get; set; }
         public DateTime BirthDate { get; set; }
         public String FullName { get { return String.Format("{0} {1}", FirstName, LastName); } }
         public UserType UserType { get; set; }
@@ -49,7 +48,7 @@ namespace BE.Entities
                    LastName == person.LastName &&
                    Gender == person.Gender &&
                    ID == person.ID &&
-                   EqualityComparer<Address>.Default.Equals(Address, person.Address) &&
+                   EqualityComparer<Address>.Default.Equals(PersonAddress, person.PersonAddress) &&
                    BirthDate == person.BirthDate &&
                    Age == person.Age;
         }
@@ -57,7 +56,7 @@ namespace BE.Entities
         public override string ToString()
         {
             return String.Format("Name: {0} {1}, ID: {2}, Gender: {3}, Adress: {4}, Birth Date: {5}, Age: {6}.",
-                FirstName, LastName, ID, Gender, Address, BirthDate, Age);
+                FirstName, LastName, ID, Gender, PersonAddress, BirthDate, Age);
         }
     }
 }

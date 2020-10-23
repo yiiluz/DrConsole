@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static BE.Configurations.Enums;
+using BE.Configurations;
 
 namespace BE.Entities
 {

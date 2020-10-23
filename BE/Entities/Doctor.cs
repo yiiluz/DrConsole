@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE.Configurations;
-using static BE.Configurations.Enums;
 
 namespace BE.Entities
 {

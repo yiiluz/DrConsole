@@ -17,6 +17,7 @@ using System.Drawing;
 using Windows.UI.Xaml.Media;
 using System.Windows.Media;
 using DrConsole.UserControls;
+using DrConsole.UserControls.Admin;
 
 namespace DrConsole.ViewModels
 {
@@ -63,14 +64,20 @@ namespace DrConsole.ViewModels
                     UserDetailsContainer.Children.Clear();
                     UserDetailsContainer.Children.Add(new UserDetailsUC(user));
                     UserDetailsContainer.Children.Add(new DoctorDetailsUC((Doctor)user));
-                    HeaderContainer.Children.Clear();
-                    HeaderContainer.Children.Add(new ExitUC());
+                    //HeaderContainer.Children.Clear();
+                    //HeaderContainer.Children.Add(new ExitUC());
                 }
                 Admin admin = user as Admin;
                 if (admin != null)
                 {
                     ((App)(App.Current)).ClearAllContainers();
-                    //((MainWindow)(((App)App.Current).mainWindow)).UserDetailsContainer.Children.Add(new DoctorDetailsUC((Admin)user));
+                    StackPanel UserDetailsContainer = ((MainWindow)(((App)App.Current).mainWindow)).UserDetailsContainer;
+                    DockPanel HomeContainer = ((MainWindow)(((App)App.Current).mainWindow)).HomeContainer;
+                    DockPanel HeaderContainer = ((MainWindow)(((App)App.Current).mainWindow)).HeaderContainer;
+                    UserDetailsContainer.Children.Clear();
+                    UserDetailsContainer.Children.Add(new UserDetailsUC(user));
+                    HomeContainer.Children.Clear();
+                    HomeContainer.Children.Add(new AdminMainTabControlUC());
                 }
             }
             loginUserControl.loginProgressRing.IsIndeterminate = false;

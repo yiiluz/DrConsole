@@ -43,8 +43,8 @@ namespace BE.Entities
 
         public override string ToString()
         {
-            return String.Format("{0} {1}, Apartment {2}, {3}, {4}",
-                Street, BuildingNumber, ApartmentNumber, City, Country);
+            return String.Format("{0} {1}, Apartment {2}, {3}, {4}, Zip Code: {5}.",
+                Street, BuildingNumber, ApartmentNumber, City, Country,ZipCode);
         }
     }
 }

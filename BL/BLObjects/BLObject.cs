@@ -71,9 +71,41 @@ namespace BL.BLObjects
             return DLObj.GetAllPatients();
         }
 
+        public List<Person> GetAllPersons()
+        {
+            List<Person> allPersons = new List<Person>();
+            foreach (Admin a in GetAllAdmins())
+            {
+                allPersons.Add(a as Person);
+            }
+            foreach (Doctor d in GetAllDoctors())
+            {
+                allPersons.Add(d as Person);
+            }
+            foreach (Patient p in GetAllPatients())
+            {
+                allPersons.Add(p as Person);
+            }
+            return allPersons;
+        }
+
         public List<Prescription> GetAllPrescriptions()
         {
             return DLObj.GetAllPrescriptions();
+        }
+
+        public List<User> GetAllUsers()
+        {
+            List<User> allUsers = new List<User>();
+            foreach(User user in GetAllAdmins())
+            {
+                allUsers.Add(user);
+            }
+            foreach (User user in GetAllDoctors())
+            {
+                allUsers.Add(user);
+            }
+            return allUsers;
         }
 
         public Doctor GetDoctor(string id)

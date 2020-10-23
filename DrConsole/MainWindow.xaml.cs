@@ -1,4 +1,5 @@
-﻿using BE.Entities;
+﻿using BE.Configurations;
+using BE.Entities;
 using BL;
 using BL.BLObjects;
 using DrConsole.UserControls;
@@ -17,7 +18,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static BE.Configurations.Enums;
 
 namespace DrConsole
 {
@@ -46,9 +46,14 @@ namespace DrConsole
             Doctor d = new Doctor("yona", "1111", "Yonatan", "Cohen", Gender.MALE, "111222333",
                 ab, new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertise.FAMILY);
             //BLObj.AddDoctor(d);
+            Address abc = new Address(40803123, "Israel", "Elad", "Rabbi Meir", 16, 1);
+
             Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", 
                 "his head hurts", 209492065, 111222333);
             //BLObj.AddPrescription(pr);
+            Admin admin = new Admin("admin", "1111", "Yitzhak", "Iluz", Gender.MALE, "12121212",
+                abc, x);
+            //BLObj.AddAdmin(admin);
         }
     }
 }

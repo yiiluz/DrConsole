@@ -65,6 +65,8 @@
     <Compile Include="Async\TaskUtilities.cs" />
     <Compile Include="Commands\Login\LoginCommand.cs" />
     <Compile Include="Async\IAsyncCommand.cs" />
+    <Compile Include="Converters\BindToObjectToStringConverter.cs" />
+    <Compile Include="Models\AdminTabsM.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="UserControls\Admin\AdminMainTabControlUC.xaml.cs">
       <DependentUpon>AdminMainTabControlUC.xaml</DependentUpon>
@@ -81,6 +83,7 @@
     <Compile Include="UserControls\WelcomeUserControl.xaml.cs">
       <DependentUpon>WelcomeUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AdminTabsVM.cs" />
     <Compile Include="ViewModels\UserDetailsViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\DoctorDetailsViewModel.cs" />
@@ -173,7 +176,6 @@
   <ItemGroup>
     <Folder Include="Commands\Admin\" />
     <Folder Include="Commands\Doctor\" />
-    <Folder Include="Converters\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>

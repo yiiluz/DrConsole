@@ -6,29 +6,26 @@ using System.Threading.Tasks;
 
 namespace BE.Configurations
 {
-    public class Enums
+    public enum Gender
     {
-        public enum Gender
-        {
-            MALE,
-            FEMALE
-        }
+        MALE,
+        FEMALE
+    }
 
-        public enum Expertise
-        {
-            FAMILY,
-            CHILDRENS,
-            SKIN,
-            EYES,
-            SURGEON,
-            ORTHOPEDICS
-        }
+    public enum Expertise
+    {
+        FAMILY,
+        CHILDRENS,
+        SKIN,
+        EYES,
+        SURGEON,
+        ORTHOPEDICS
+    }
 
-        public enum UserType
-        {
-            DOCTOR,
-            ADMIN,
-            PATIENT
-        }
+    public enum UserType
+    {
+        DOCTOR,
+        ADMIN,
+        PATIENT
     }
 }

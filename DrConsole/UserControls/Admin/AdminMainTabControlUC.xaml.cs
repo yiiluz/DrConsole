@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrConsole.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace DrConsole.UserControls.Admin
     /// </summary>
     public partial class AdminMainTabControlUC : UserControl
     {
+        AdminTabsVM ViewModel = new AdminTabsVM();
         public AdminMainTabControlUC()
         {
             InitializeComponent();
+            PersonsDataGrid.ItemsSource = ViewModel.Persons;
         }
     }
 }
