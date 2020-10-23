@@ -35,24 +35,22 @@ namespace DrConsole
             HeaderContainer.Children.Add(new WelcomeUserControl());
 
             DateTime x = new DateTime(1997, 12, 23);
-            Address a = new Address(4080716, "Israel", "Elad", "Rabbi Meir", 16, 1);
             List<Prescription> l = new List<Prescription>();
             Dictionary<Drug, int> dict = new Dictionary<Drug, int>();
-            Patient p = new Patient(l, "Yitzhak", "Iluz", Gender.MALE, "209492065",
-                a, x);
+            Patient p = new Patient(l, "Moshe", "Iluz", Gender.MALE, "209492065",
+                 x, "40803123, Israel, Petah Tikva, Rabbi Yehuda 17 Apartment 1");
             //BLObj.AddPatient(p);
-            Address ab = new Address(4080716, "Israel", "Elad", "Rabbi Meir", 16, 2);
 
             Doctor d = new Doctor("yona", "1111", "Yonatan", "Cohen", Gender.MALE, "111222333",
-                ab, new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertise.FAMILY);
+                new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertise.FAMILY,
+                "40803123, Israel, Elad, Rabbi Yehoshua 32");
             //BLObj.AddDoctor(d);
-            Address abc = new Address(40803123, "Israel", "Elad", "Rabbi Meir", 16, 1);
 
             Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", 
                 "his head hurts", 209492065, 111222333);
             //BLObj.AddPrescription(pr);
             Admin admin = new Admin("admin", "1111", "Yitzhak", "Iluz", Gender.MALE, "12121212",
-                abc, x);
+                 x, "40803123, Israel, Elad, Rabbi Meir 16 Apartment 1");
             //BLObj.AddAdmin(admin);
         }
     }

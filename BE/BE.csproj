@@ -44,7 +44,6 @@
     <Compile Include="Configurations\Defaults.cs" />
     <Compile Include="Configurations\Enums.cs" />
     <Compile Include="Configurations\Strings.cs" />
-    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\ActiveIngredient.cs" />
     <Compile Include="Entities\Drug.cs" />

@@ -13,13 +13,14 @@ namespace BE.Entities
     public class Person
     {
         public Person() { }
-        public Person(string firstName, string lastName, Gender gender, String iD, Address address, DateTime birthDate)
+        public Person(string firstName, string lastName, Gender gender, String iD, 
+            DateTime birthDate, string address)
         {
+            Address = address;
             FirstName = firstName;
             LastName = lastName;
             Gender = gender;
             ID = iD;
-            PersonAddress = address;
             BirthDate = birthDate;
         }
 
@@ -28,11 +29,10 @@ namespace BE.Entities
         public Gender Gender { get; set; }
         [Key, Column(Order = 0)]
         public String ID { get; set; }
-        public Address PersonAddress { get; set; }
         public DateTime BirthDate { get; set; }
         public String FullName { get { return String.Format("{0} {1}", FirstName, LastName); } }
         public UserType UserType { get; set; }
-
+        public String Address { get; set; }
         public int Age
         {
             get
@@ -48,15 +48,14 @@ namespace BE.Entities
                    LastName == person.LastName &&
                    Gender == person.Gender &&
                    ID == person.ID &&
-                   EqualityComparer<Address>.Default.Equals(PersonAddress, person.PersonAddress) &&
                    BirthDate == person.BirthDate &&
-                   Age == person.Age;
-        }
+                   UserType == person.UserType;
+;        }
 
         public override string ToString()
         {
             return String.Format("Name: {0} {1}, ID: {2}, Gender: {3}, Adress: {4}, Birth Date: {5}, Age: {6}.",
-                FirstName, LastName, ID, Gender, PersonAddress, BirthDate, Age);
+                FirstName, LastName, ID, Gender, Address, BirthDate, Age);
         }
     }
 }

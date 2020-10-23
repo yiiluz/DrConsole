@@ -14,8 +14,9 @@ namespace BE.Entities
         private List<Prescription> history;
 
         public Patient() { }
-        public Patient(List<Prescription> history, string firstName, string lastName, Gender gender, String id, Address address, DateTime birthDate)
-            : base(firstName, lastName, gender, id, address, birthDate)
+        public Patient(List<Prescription> history, string firstName, string lastName, 
+            Gender gender, String id, DateTime birthDate,string address)
+            : base(firstName, lastName, gender, id, birthDate, address)
         {
             this.history = history;
             this.UserType = UserType.PATIENT;

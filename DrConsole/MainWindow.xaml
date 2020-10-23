@@ -34,7 +34,7 @@
         </Grid.ColumnDefinitions>
         <DockPanel HorizontalAlignment="Left" Height="100" Margin="769,398,0,0" VerticalAlignment="Top" />
         <DockPanel x:Name="HeaderContainer" Grid.Row="0" Grid.ColumnSpan="5"/>
-        <StackPanel Margin="30" Orientation="Vertical" x:Name="UserDetailsContainer" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4"/>
+        <StackPanel Margin="30 0 30 0" Orientation="Vertical" x:Name="UserDetailsContainer" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4"/>
         <DockPanel x:Name="HomeContainer" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4"/>
         <DockPanel x:Name="LoginContainer" Grid.Row="2" Grid.Column="2"/>
         <!--<ui:SimpleStackPanel x:Name="LoginStackPanel" Grid.Row="1" Grid.Column="1"/>

@@ -71,6 +71,9 @@
     <Compile Include="UserControls\Admin\AdminMainTabControlUC.xaml.cs">
       <DependentUpon>AdminMainTabControlUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Dialogs\AdminContentDialogUC.xaml.cs">
+      <DependentUpon>AdminContentDialogUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\User\UserDetailsUC.xaml.cs">
       <DependentUpon>UserDetailsUC.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\Admin\AdminMainTabControlUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Dialogs\AdminContentDialogUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

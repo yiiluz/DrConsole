@@ -11,7 +11,7 @@
     <UserControl.Resources>
         <converters:BindToObjectToStringConverter x:Key="BindToObjectToStringConverter"/>
     </UserControl.Resources>
-    <ui:SimpleStackPanel Orientation="Vertical" Margin="10">
+    <ui:SimpleStackPanel Orientation="Vertical">
         <TextBlock Text="User Information" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
         <Label Content="Username:"/>
         <TextBox IsEnabled="False" Text="{Binding Path=User.UserName}" Margin="0,0,0,5"/>
@@ -20,7 +20,7 @@
         <Label Content="ID:"/>
         <TextBox IsEnabled="False" Text="{Binding Path=User.ID}" Margin="0,0,0,10"/>
         <Label Content="Address:"/>
-        <TextBox IsEnabled="False" Text="{Binding Path=User}" Margin="0,0,0,5"/>
+        <TextBox IsEnabled="False" Text="{Binding Path=User.Address, Mode=OneWay}" Margin="0,0,0,5"/>
         <Label Content="Birth Date:"/>
         <TextBox IsEnabled="False" Text="{Binding Path=User.BirthDate}" Margin="0,0,0,5"/>
     </ui:SimpleStackPanel>

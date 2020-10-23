@@ -16,12 +16,14 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="9*"/>
                     </Grid.RowDefinitions>
-                    <ui:SimpleStackPanel Spacing="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 0 0">
+                    <ui:SimpleStackPanel  Spacing="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 0 0">
                         <ui:AutoSuggestBox PlaceholderText="Search" QueryIcon="Find" Width="200"/>
                         <!--TextChanged="AutoSuggestBox_TextChanged"
                                             QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                                             SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>-->
-                        <Button Content="Add New Person"/>
+                        <Button Content="Add New Admin" Click="AddNewAdminClick"/>
+                        <Button Content="Add New Doctor" Click="AddNewDoctorClick"/>
+                        <Button Content="Add New Patient" Click="AddNewPatientClick"/>
                     </ui:SimpleStackPanel>
                     <DataGrid x:Name="PersonsDataGrid" Grid.Row="1" AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -32,7 +34,7 @@
                             <DataGridTextColumn Header="Age" Binding="{Binding Age}"/>
                             <DataGridTextColumn Header="User Type" Binding="{Binding UserType}"/>
                             <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
-                            <DataGridTextColumn Header="Address" Binding="{Binding PersonAddress}"/>
+                            <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
                         </DataGrid.Columns>
                         <DataGrid.ContextMenu>
                             <ContextMenu>

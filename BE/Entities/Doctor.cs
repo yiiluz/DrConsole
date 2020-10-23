@@ -14,8 +14,8 @@ namespace BE.Entities
     {
         public Doctor() { }
         public Doctor(string userName, string password, string firstName, string lastName, Gender gender, 
-            String id, Address address, DateTime birthDate, int license, DateTime graduation, Expertise expertise)
-            : base(userName, password, firstName, lastName, gender, id, address, birthDate)
+            String id, DateTime birthDate, int license, DateTime graduation, Expertise expertise, string address)
+            : base(userName, password, firstName, lastName, gender, id, birthDate,address)
 
         {
             this.License = license;

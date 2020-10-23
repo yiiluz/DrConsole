@@ -15,8 +15,8 @@ namespace BE.Entities
         private string userName;
         public User() { }
         public User(string userName, string password, 
-            string firstName, string lastName, Gender gender, String id, Address address, DateTime birthDate) 
-            : base(firstName, lastName, gender, id, address, birthDate)
+            string firstName, string lastName, Gender gender, String id, DateTime birthDate, string address)
+            : base(firstName, lastName, gender, id, birthDate, address)
         {
             this.userName = userName.ToLower();
             this.Password = password;
