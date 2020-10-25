@@ -1,0 +1,52 @@
+﻿<ui:ContentDialog x:Class="DrConsole.Dialogs.Admin.View.AddAdminDialogV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrConsole.Dialogs.Admin.View"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:enums="clr-namespace:BE.Configurations;assembly=BE"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:ConfigurationPath="clr-namespace:BE.Configurations;assembly=BE"
+             mc:Ignorable="d" Height="500">
+    <ui:ContentDialog.Resources>
+        <ObjectDataProvider x:Key="Gender" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ConfigurationPath:Gender"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </ui:ContentDialog.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
+            <TextBlock Text="Add New Admin" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
+            <TextBlock Text="Username:"/>
+            <TextBox x:Name="UserName" Text="{Binding Path=NewAdmin.UserName}" Margin="0,0,0,5"/>
+            <TextBlock Text="Password:"/>
+            <TextBox x:Name="Password" Text="{Binding Path=NewAdmin.Password}" Margin="0,0,0,5"/>
+            <TextBlock Text="First Name:"/>
+            <TextBox x:Name="FirstName" Text="{Binding Path=NewAdmin.FirstName}" Margin="0,0,0,5"/>
+            <TextBlock Text="Last Name:"/>
+            <TextBox x:Name="LastName" Text="{Binding Path=NewAdmin.LastName}" Margin="0,0,0,5"/>
+            <TextBlock Text="ID:"/>
+            <ui:NumberBox x:Name="ID" Text="{Binding Path=NewAdmin.ID}" Margin="0,0,0,10"/>
+            <TextBlock Text="Address:"/>
+            <TextBox x:Name="Address" Text="{Binding Path=NewAdmin.Address}" Margin="0,0,0,5"/>
+            <TextBlock Text="Birth Date:"/>
+            <DatePicker x:Name="BirthDate" HorizontalAlignment="Stretch" SelectedDate="{Binding Path=NewAdmin.BirthDate, StringFormat=dd-MM-yyyy}" Margin="0,0,0,5"/>
+            <TextBlock Text="Gender:"/>
+            <ComboBox x:Name="Gender" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Gender}}" SelectedItem="{Binding Path=NewAdmin.Gender}" Margin="0,0,0,5"/>
+            <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
+                <ToggleButton Content="Add" Width="70" Command="{Binding AddNewAdminClick}" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddAdminDialogV}}}"/>
+                <Button Content="Cancel" Width="70"  Command="{Binding CancelClick}" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddAdminDialogV}}}"/>
+            </ui:SimpleStackPanel>
+            <ui:ProgressBar x:Name="addNewAdminProggressBar" FlowDirection="LeftToRight"/>
+        </ui:SimpleStackPanel>
+    </ScrollViewer>
+</ui:ContentDialog>

@@ -12,31 +12,27 @@ namespace BE.Entities
     public class ActiveIngredient
     {
         public ActiveIngredient() { }
-        public ActiveIngredient(int rxcui, string name, string tty)
+        public ActiveIngredient(string name, string rxcui)
         {
             Rxcui = rxcui;
             Name = name;
-            Tty = tty;
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int Rxcui { get; set; }
+        public string Rxcui { get; set; }
         public String Name { get; set; }
-        public String Tty { get; set; }
 
         public override bool Equals(object obj)
         {
             return obj is ActiveIngredient ingredient &&
                    Rxcui == ingredient.Rxcui &&
-                   Name == ingredient.Name &&
-                   Tty == ingredient.Tty;
+                   Name == ingredient.Name;
         }
 
         public override string ToString()
         {
-            return String.Format("Active Ingrediente: {0}, RXCUI Code: {1}, TTY: {2}",
-                Name, Rxcui, Tty);
+            return String.Format("Active Ingrediente: {0}, RXCUI Code: {1}.",
+                Name, Rxcui);
         }
     }
 }

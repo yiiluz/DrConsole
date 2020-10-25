@@ -37,6 +37,41 @@ namespace BL.BLObjects
             DLObj.AddPrescription(prescription);
         }
 
+        public void DeleteAdmin(Admin id)
+        {
+            DLObj.DeleteAdmin(id);
+        }
+
+        public void DeleteDoctor(Doctor doctor)
+        {
+            DLObj.DeleteDoctor(doctor);
+        }
+
+        public void DeleteDrug(Drug drug)
+        {
+            DLObj.DeleteDrug(drug);
+        }
+
+        public void DeletePatient(Patient patient)
+        {
+            DLObj.DeletePatient(patient);
+        }
+
+        public void DeletePerson(Person person)
+        {
+            if (person == null)
+                throw new ArgumentNullException("Error, trying to delete null person.");
+            Admin a = person as Admin;
+            if (a != null)
+                DeleteAdmin(a);
+            Doctor d = person as Doctor;
+            if (d != null)
+                DeleteDoctor(d);
+            Patient p = person as Patient;
+            if (p != null)
+                DeletePatient(p);
+        }
+
         public List<Admin> GetAllAdmins()
         {
             return DLObj.GetAllAdmins();
@@ -128,6 +163,26 @@ namespace BL.BLObjects
             throw new NotImplementedException();
         }
 
+        public Person GetPersonByID(string id)
+        {
+            foreach (Admin a in GetAllAdmins())
+            {
+                if (a.ID.Equals(id))
+                    return a;
+            }
+            foreach (Doctor d in GetAllDoctors())
+            {
+                if (d.ID.Equals(id))
+                    return d;
+            }
+            foreach (Patient p in GetAllPatients())
+            {
+                if (p.ID.Equals(id))
+                    return p;
+            }
+            return null;
+        }
+
         public List<Prescription> GetPrescriptionsByDateRange(DateTime start, DateTime end)
         {
             throw new NotImplementedException();
@@ -137,22 +192,43 @@ namespace BL.BLObjects
         {
             userName = userName.ToLower();
             User user = null;
-            foreach(Admin admin in DLObj.GetAllAdmins())
+            try
             {
-                if (admin.UserName.Equals(userName) && admin.Password.Equals(password))
-                    user = admin;
-            }
-            if (user == null)
-            {
-                foreach (Doctor doctor in DLObj.GetAllDoctors())
+                foreach (Admin admin in DLObj.GetAllAdmins())
                 {
-                    if (doctor.UserName.Equals(userName) && doctor.Password.Equals(password))
-                        user = doctor;
+                    if (admin.UserName.Equals(userName) && admin.Password.Equals(password))
+                        user = admin;
                 }
+                if (user == null)
+                {
+                    foreach (Doctor doctor in DLObj.GetAllDoctors())
+                    {
+                        if (doctor.UserName.Equals(userName) && doctor.Password.Equals(password))
+                            user = doctor;
+                    }
+                }
+            } catch (Exception e)
+            {
+                throw e;
             }
             if (user == null)
                 throw new AccessViolationException("No Such User");
             return user;
+        }
+
+        public void UpdateAdmin(Admin a)
+        {
+            DLObj.UpdateAdmin(a);
+        }
+
+        public void UpdateDoctor(Doctor d)
+        {
+            DLObj.UpdateDoctor(d);
+        }
+
+        public void UpdatePatient(Patient p)
+        {
+            DLObj.UpdatePatient(p);
         }
     }
 }

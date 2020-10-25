@@ -15,7 +15,7 @@ namespace BE.Configurations
         FEMALE
     }
 
-    public enum Expertise
+    public enum Expertize
     {
         FAMILY,
         CHILDRENS,
@@ -30,5 +30,13 @@ namespace BE.Configurations
         DOCTOR,
         ADMIN,
         PATIENT
+    }
+
+    public enum DrugType
+    {
+        SEPARANDA,
+        CONTROLLED_DRUGS,
+        TOXIC,
+        PSYCHOTHERAPIES
     }
 }

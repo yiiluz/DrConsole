@@ -12,7 +12,10 @@ namespace BE.Entities
     [Table("Persons")]
     public class Person
     {
-        public Person() { }
+        public Person()
+        {
+            this.BirthDate = DateTime.Now;
+        }
         public Person(string firstName, string lastName, Gender gender, String iD, 
             DateTime birthDate, string address)
         {

@@ -10,14 +10,14 @@
         Title="Dr. Console" Height="735" Width="1200"
         ui:WindowHelper.UseModernWindowStyle="True"
         WindowState="Maximized"
-        ResizeMode="NoResize">
+        ResizeMode="CanMinimize">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/Background.jpg" Stretch="Fill" Opacity="5"/>
+        <ImageBrush ImageSource="/Global/Images/Background.jpg" Stretch="Fill" Opacity="0.1"/>
     </Window.Background>
     <Grid x:Name="mainGrid">
-        <Grid.Background>
+        <!--<Grid.Background>
             <SolidColorBrush Color="White" Opacity="0.9"/>
-        </Grid.Background>
+        </Grid.Background>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2.5*"/>
@@ -32,10 +32,21 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
+        <Border x:Name="HeaderLine" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" BorderBrush="CornflowerBlue"/>
+        <Border x:Name="DetailesLine" Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" BorderBrush="CornflowerBlue"/>
         <DockPanel HorizontalAlignment="Left" Height="100" Margin="769,398,0,0" VerticalAlignment="Top" />
-        <DockPanel x:Name="HeaderContainer" Grid.Row="0" Grid.ColumnSpan="5"/>
-        <StackPanel Margin="30 0 30 0" Orientation="Vertical" x:Name="UserDetailsContainer" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4"/>
-        <DockPanel x:Name="HomeContainer" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4"/>
+        <Border x:Name="HeaderBorder" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+            <DockPanel x:Name="HeaderContainer"/>
+        </Border>
+        <Border x:Name="SettingsBorder" Grid.Row="0" Grid.Column="0">
+            <DockPanel x:Name="SettingsContainer"/>
+        </Border>
+        <Border BorderThickness="2" x:Name="UserDetailsBorder" Padding="30 0 30 0" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4">
+            <StackPanel Orientation="Vertical" x:Name="UserDetailsContainer" />
+        </Border>
+        <Border BorderThickness="2" x:Name="HomeBorder" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4">
+            <DockPanel x:Name="HomeContainer"/>
+        </Border>
         <DockPanel x:Name="LoginContainer" Grid.Row="2" Grid.Column="2"/>
         <!--<ui:SimpleStackPanel x:Name="LoginStackPanel" Grid.Row="1" Grid.Column="1"/>
         <TextBlock Text="Wellcome to Dr. Console dashboard. Please log in." HorizontalAlignment="Center" Margin="50" x:Name="LoginHeader" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource HeaderTextBlockStyle}"/>-->

@@ -12,9 +12,14 @@ namespace BE.Entities
     [Table("Doctors")]
     public class Doctor : User
     {
-        public Doctor() { }
+        public Doctor()
+        {
+            this.Graduation = DateTime.Now;
+            this.Gender = Gender.FEMALE;
+            this.Expertize = Expertize.FAMILY;
+        }
         public Doctor(string userName, string password, string firstName, string lastName, Gender gender, 
-            String id, DateTime birthDate, int license, DateTime graduation, Expertise expertise, string address)
+            String id, DateTime birthDate, int license, DateTime graduation, Expertize expertise, string address)
             : base(userName, password, firstName, lastName, gender, id, birthDate,address)
 
         {
@@ -27,7 +32,7 @@ namespace BE.Entities
         [Key, Column(Order = 2)]
         public int License { get; set; }
         public DateTime Graduation { get; set; }
-        public Expertise Expertize { get; set; }
+        public Expertize Expertize { get; set; }
 
         public override bool Equals(object obj)
         {

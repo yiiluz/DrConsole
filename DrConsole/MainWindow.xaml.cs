@@ -2,6 +2,7 @@
 using BE.Entities;
 using BL;
 using BL.BLObjects;
+using DrConsole.Global.Settings;
 using DrConsole.UserControls;
 using DrConsole.UserControls.Login;
 using System;
@@ -31,26 +32,27 @@ namespace DrConsole
         {
             ((App)App.Current).mainWindow = this;
             InitializeComponent();
-            LoginContainer.Children.Add(new LoginUserControl());
-            HeaderContainer.Children.Add(new WelcomeUserControl());
+            LoginContainer.Children.Add(new LoginUC());
+            HeaderContainer.Children.Add(new WelcomeHeaderUC());
+            SettingsContainer.Children.Add(new SettingsV());
 
             DateTime x = new DateTime(1997, 12, 23);
             List<Prescription> l = new List<Prescription>();
             Dictionary<Drug, int> dict = new Dictionary<Drug, int>();
             Patient p = new Patient(l, "Moshe", "Iluz", Gender.MALE, "209492065",
-                 x, "40803123, Israel, Petah Tikva, Rabbi Yehuda 17 Apartment 1");
+                 x, "Israel, Petah Tikva, Rabbi Yehuda 17 Apartment 1");
             //BLObj.AddPatient(p);
 
             Doctor d = new Doctor("yona", "1111", "Yonatan", "Cohen", Gender.MALE, "111222333",
-                new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertise.FAMILY,
-                "40803123, Israel, Elad, Rabbi Yehoshua 32");
+                new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertize.FAMILY,
+                "Israel, Elad, Rabbi Yehoshua 32");
             //BLObj.AddDoctor(d);
 
             Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", 
                 "his head hurts", 209492065, 111222333);
             //BLObj.AddPrescription(pr);
-            Admin admin = new Admin("admin", "1111", "Yitzhak", "Iluz", Gender.MALE, "12121212",
-                 x, "40803123, Israel, Elad, Rabbi Meir 16 Apartment 1");
+            BE.Entities.Admin admin = new BE.Entities.Admin("admin", "1111", "Yitzhak", "Iluz", Gender.MALE, "12121212",
+                 x, "Israel, Elad, Rabbi Meir 16 Apartment 1");
             //BLObj.AddAdmin(admin);
         }
     }

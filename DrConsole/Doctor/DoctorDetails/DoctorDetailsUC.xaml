@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="DrConsole.UserControls.Doctor.DoctorDetailsUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrConsole.UserControls.Doctor"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             mc:Ignorable="d" 
+             d:DesignHeight="240" d:DesignWidth="180">
+    <ui:SimpleStackPanel Orientation="Vertical">
+        <TextBlock Text="Doctor Information" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,15,0,10"/>
+        <Label Content="Expertize:"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=Doctor.Expertize}" Margin="0,0,0,5"/>
+        <Label Content="License:"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=Doctor.License}" Margin="0,0,0,5"/>
+        <Label Content="Graduation Date:"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Stretch" Text="{Binding Path=Doctor.Graduation, StringFormat=dd-MM-yyyy}" Margin="0,0,0,5"/>
+    </ui:SimpleStackPanel>
+</UserControl>

@@ -1,4 +1,5 @@
 ﻿using BE.Entities;
+using ModernWpf;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,6 +22,7 @@ namespace DrConsole
 
         public App()
         {
+            ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
         }
 
         public void ClearAllContainers()

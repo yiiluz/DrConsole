@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>doctor.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="netstandard" />
     <Reference Include="System" />
@@ -61,35 +64,75 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Async\IErrorHandler.cs" />
-    <Compile Include="Async\TaskUtilities.cs" />
-    <Compile Include="Commands\Login\LoginCommand.cs" />
-    <Compile Include="Async\IAsyncCommand.cs" />
-    <Compile Include="Converters\BindToObjectToStringConverter.cs" />
-    <Compile Include="Models\AdminTabsM.cs" />
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="UserControls\Admin\AdminMainTabControlUC.xaml.cs">
-      <DependentUpon>AdminMainTabControlUC.xaml</DependentUpon>
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogM.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogV.xaml.cs">
+      <DependentUpon>AddDrugDialogV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Dialogs\AdminContentDialogUC.xaml.cs">
-      <DependentUpon>AdminContentDialogUC.xaml</DependentUpon>
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogVM.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogM.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogV.xaml.cs">
+      <DependentUpon>AddPatientDialogV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\User\UserDetailsUC.xaml.cs">
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogVM.cs" />
+    <Compile Include="Global\GlobalCommands\Command.cs" />
+    <Compile Include="Global\GlobalCommands\IErrorHandler.cs" />
+    <Compile Include="Global\GlobalCommands\TaskUtilities.cs" />
+    <Compile Include="Global\GlobalCommands\IAsyncCommand.cs" />
+    <Compile Include="Global\Converters\BindToObjectToStringConverter.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewAdmin\AddAdminDialogM.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewAdmin\AddAdminDialogV.xaml.cs">
+      <DependentUpon>AddAdminDialogV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDoctor\AddDoctorDialogM.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDoctor\AddDoctorDialogVM.cs" />
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDoctor\AddDoctorDialogV.xaml.cs">
+      <DependentUpon>AddDoctorDialogV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminTabsM.cs" />
+    <Compile Include="Global\Settings\SettingsV.xaml.cs">
+      <DependentUpon>SettingsV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginModel.cs" />
+    <Compile Include="Admin\AdminTabV.xaml.cs">
+      <DependentUpon>AdminTabV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PersonsTab\Dialogs\AddNewAdmin\AddAdminDialogVM.cs" />
+    <Compile Include="User\UserDetailsUC.xaml.cs">
       <DependentUpon>UserDetailsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Doctor\DoctorDetailsUC.xaml.cs">
+    <Compile Include="Doctor\DoctorDetails\DoctorDetailsUC.xaml.cs">
       <DependentUpon>DoctorDetailsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Login\LoginUserControl.xaml.cs">
-      <DependentUpon>LoginUserControl.xaml</DependentUpon>
+    <Compile Include="Login\LoginUC.xaml.cs">
+      <DependentUpon>LoginUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\WelcomeUserControl.xaml.cs">
-      <DependentUpon>WelcomeUserControl.xaml</DependentUpon>
+    <Compile Include="Login\WelcomeHeaderUC.xaml.cs">
+      <DependentUpon>WelcomeHeaderUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AdminTabsVM.cs" />
-    <Compile Include="ViewModels\UserDetailsViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\DoctorDetailsViewModel.cs" />
+    <Compile Include="Admin\AdminTabsVM.cs" />
+    <Compile Include="User\UserDetailsViewModel.cs" />
+    <Compile Include="Login\LoginViewModel.cs" />
+    <Compile Include="Doctor\DoctorDetails\DoctorDetailsViewModel.cs" />
+    <Page Include="Admin\PersonsTab\Dialogs\AddNewAdmin\AddAdminDialogV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\PersonsTab\Dialogs\AddNewDoctor\AddDoctorDialogV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Global\Settings\SettingsV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,27 +145,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\Admin\AdminMainTabControlUC.xaml">
+    <Page Include="Admin\AdminTabV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Dialogs\AdminContentDialogUC.xaml">
+    <Page Include="User\UserDetailsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\User\UserDetailsUC.xaml">
+    <Page Include="Doctor\DoctorDetails\DoctorDetailsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Doctor\DoctorDetailsUC.xaml">
+    <Page Include="Login\LoginUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Login\LoginUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\WelcomeUserControl.xaml">
+    <Page Include="Login\WelcomeHeaderUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,17 +218,18 @@
     <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml">
       <Version>4.6.0</Version>
     </PackageReference>
+    <PackageReference Include="System.Windows.Interactivity.WPF">
+      <Version>2.0.20525</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\Admin\" />
-    <Folder Include="Commands\Doctor\" />
-    <Folder Include="Views\" />
+    <Folder Include="Global\Images\DrugImages\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Pills.jpg" />
+    <Resource Include="Global\Images\Background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Background.jpg" />
+    <Resource Include="doctor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

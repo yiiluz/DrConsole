@@ -14,6 +14,17 @@ namespace BL
         void AddPatient(Patient patient);
         void AddDoctor(Doctor doctor);
         void AddDrug(Drug drug);
+        void DeleteAdmin(Admin id);
+        void DeletePatient(Patient patient);
+        void DeleteDoctor(Doctor doctor);
+        void DeleteDrug(Drug drug);
+        void DeletePerson(Person person);
+        Person GetPersonByID(string id);
+        void UpdatePatient(Patient p); 
+        void UpdateDoctor(Doctor d);
+        void UpdateAdmin(Admin a);
+
+
         List<Prescription> GetPrescriptionsByDateRange(DateTime start, DateTime end);
         List<Patient> GetAllPatients();
         List<Doctor> GetAllDoctors();

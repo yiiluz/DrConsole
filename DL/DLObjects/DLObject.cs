@@ -3,6 +3,7 @@ using DL.DataBases;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,42 @@ namespace DL.DLObjects
             using (var db = new DrConsoleDB())
             {
                 db.PrescriptionDB.Add(prescription);
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteAdmin(Admin admin)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.Entry(admin).State = EntityState.Deleted;
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteDoctor(Doctor doctor)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.Entry(doctor).State = EntityState.Deleted;
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteDrug(Drug drug)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.Entry(drug).State = EntityState.Deleted;
+                db.SaveChanges();
+            }
+        }
+
+        public void DeletePatient(Patient patient)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.Entry(patient).State = EntityState.Deleted;
                 db.SaveChanges();
             }
         }
@@ -117,6 +154,33 @@ namespace DL.DLObjects
             using (var db = new DrConsoleDB())
             {
                 return (from p in db.PatientsDB where p.ID.Equals(patientId) select p).FirstOrDefault();
+            }
+        }
+
+        public void UpdateAdmin(Admin a)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.AdminsDB.AddOrUpdate(a);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateDoctor(Doctor d)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.DoctorsDB.AddOrUpdate(d);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdatePatient(Patient p)
+        {
+            using (var db = new DrConsoleDB())
+            {
+                db.PatientsDB.AddOrUpdate(p);
+                db.SaveChanges();
             }
         }
     }

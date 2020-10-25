@@ -1,0 +1,65 @@
+﻿<ui:ContentDialog x:Class="DrConsole.Dialogs.Doctor.View.AddDoctorDialogV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrConsole.Dialogs.Doctor.View"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:enums="clr-namespace:BE.Configurations;assembly=BE"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:ConfigurationPath="clr-namespace:BE.Configurations;assembly=BE"
+             mc:Ignorable="d" Height="500">
+    <ui:ContentDialog.Resources>
+        <ObjectDataProvider x:Key="Gender" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ConfigurationPath:Gender"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="Expertize" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ConfigurationPath:Expertize"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </ui:ContentDialog.Resources>
+    <ScrollViewer>
+        <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
+            <TextBlock Text="Add New Doctor" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
+            <TextBlock Text="Username:"/>
+            <TextBox x:Name="UserName" Text="{Binding Path=NewDoctor.UserName}" Margin="0,0,0,5"/>
+            <TextBlock Text="Password:"/>
+            <TextBox x:Name="Password" Text="{Binding Path=NewDoctor.Password}" Margin="0,0,0,5"/>
+            <TextBlock Text="First Name:"/>
+            <TextBox x:Name="FirstName" Text="{Binding Path=NewDoctor.FirstName}" Margin="0,0,0,5"/>
+            <TextBlock Text="Last Name:"/>
+            <TextBox x:Name="LastName" Text="{Binding Path=NewDoctor.LastName}" Margin="0,0,0,5"/>
+            <TextBlock Text="ID:"/>
+            <ui:NumberBox x:Name="ID" Text="{Binding Path=NewDoctor.ID}" Margin="0,0,0,10"/>
+            <TextBlock Text="License Number:"/>
+            <ui:NumberBox x:Name="License" Text="{Binding Path=NewDoctor.License}" Margin="0,0,0,10"/>
+            <TextBlock Text="Address:"/>
+            <TextBox x:Name="Address" Text="{Binding Path=NewDoctor.Address}" Margin="0,0,0,5"/>
+            <TextBlock Text="Birth Date:"/>
+            <DatePicker x:Name="BirthDate" HorizontalAlignment="Stretch" SelectedDate="{Binding Path=NewDoctor.BirthDate, StringFormat=dd-MM-yyyy}" Margin="0,0,0,5"/>
+            <TextBlock Text="Graduation Date:"/>
+            <DatePicker x:Name="GraduationDate" HorizontalAlignment="Stretch" SelectedDate="{Binding Path=NewDoctor.Graduation, StringFormat=dd-MM-yyyy}" Margin="0,0,0,5"/>
+            <TextBlock Text="Gender:"/>
+            <ComboBox x:Name="Gender" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Gender}}" SelectedItem="{Binding Path=NewDoctor.Gender}" Margin="0,0,0,5"/>
+            <TextBlock Text="Expertize:"/>
+            <ComboBox x:Name="Expertize" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Expertize}}" SelectedItem="{Binding Path=NewDoctor.Expertize}" Margin="0,0,0,5"/>
+
+            <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
+                <ToggleButton Content="Add" Width="70" Command="{Binding AddNewDoctorClick}" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddDoctorDialogV}}}"/>
+                <Button Content="Cancel" Width="70"  Command="{Binding CancelClick}" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddDoctorDialogV}}}"/>
+            </ui:SimpleStackPanel>
+            <ui:ProgressBar x:Name="addNewDoctorProggressBar" FlowDirection="LeftToRight"/>
+        </ui:SimpleStackPanel>
+    </ScrollViewer>
+</ui:ContentDialog>
