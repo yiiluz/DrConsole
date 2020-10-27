@@ -64,16 +64,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogM.cs" />
-    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogV.xaml.cs">
+    <Compile Include="Admin\DrugsTab\AddNewDrug\AddDrugDialogM.cs" />
+    <Compile Include="Admin\DrugsTab\AddNewDrug\AddDrugDialogV.xaml.cs">
       <DependentUpon>AddDrugDialogV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogVM.cs" />
+    <Compile Include="Admin\DrugsTab\AddNewDrug\AddDrugDialogVM.cs" />
     <Compile Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogM.cs" />
     <Compile Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogV.xaml.cs">
       <DependentUpon>AddPatientDialogV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogVM.cs" />
+    <Compile Include="Doctor\DoctorM.cs" />
+    <Compile Include="Doctor\DoctorV.xaml.cs">
+      <DependentUpon>DoctorV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorVM.cs" />
     <Compile Include="Global\GlobalCommands\Command.cs" />
     <Compile Include="Global\GlobalCommands\IErrorHandler.cs" />
     <Compile Include="Global\GlobalCommands\TaskUtilities.cs" />
@@ -89,29 +94,34 @@
       <DependentUpon>AddDoctorDialogV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminTabsM.cs" />
+    <Compile Include="Global\Header\NotifyMessageV.xaml.cs">
+      <DependentUpon>NotifyMessageV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Header\NotifyMessageVM.cs" />
     <Compile Include="Global\Settings\SettingsV.xaml.cs">
       <DependentUpon>SettingsV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login\LoginModel.cs" />
+    <Compile Include="Global\Login\LoginModel.cs" />
     <Compile Include="Admin\AdminTabV.xaml.cs">
       <DependentUpon>AdminTabV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\PersonsTab\Dialogs\AddNewAdmin\AddAdminDialogVM.cs" />
-    <Compile Include="User\UserDetailsUC.xaml.cs">
+    <Compile Include="Global\Settings\SettingsVM.cs" />
+    <Compile Include="Global\User\UserDetailsUC.xaml.cs">
       <DependentUpon>UserDetailsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Doctor\DoctorDetails\DoctorDetailsUC.xaml.cs">
       <DependentUpon>DoctorDetailsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login\LoginUC.xaml.cs">
+    <Compile Include="Global\Login\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login\WelcomeHeaderUC.xaml.cs">
+    <Compile Include="Global\Header\WelcomeHeaderUC.xaml.cs">
       <DependentUpon>WelcomeHeaderUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminTabsVM.cs" />
-    <Compile Include="User\UserDetailsViewModel.cs" />
-    <Compile Include="Login\LoginViewModel.cs" />
+    <Compile Include="Global\User\UserDetailsViewModel.cs" />
+    <Compile Include="Global\Login\LoginViewModel.cs" />
     <Compile Include="Doctor\DoctorDetails\DoctorDetailsViewModel.cs" />
     <Page Include="Admin\PersonsTab\Dialogs\AddNewAdmin\AddAdminDialogV.xaml">
       <SubType>Designer</SubType>
@@ -121,11 +131,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Admin\PersonsTab\Dialogs\AddNewDrug\AddDrugDialogV.xaml">
+    <Page Include="Admin\DrugsTab\AddNewDrug\AddDrugDialogV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Admin\PersonsTab\Dialogs\AddNewPatient\AddPatientDialogV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Doctor\DoctorV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Global\Header\NotifyMessageV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,7 +167,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User\UserDetailsUC.xaml">
+    <Page Include="Global\User\UserDetailsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,11 +175,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login\LoginUC.xaml">
+    <Page Include="Global\Login\LoginUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login\WelcomeHeaderUC.xaml">
+    <Page Include="Global\Header\WelcomeHeaderUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,6 +224,9 @@
     <PackageReference Include="EntityFramework">
       <Version>6.4.4</Version>
     </PackageReference>
+    <PackageReference Include="Google.Apis.Drive.v3">
+      <Version>1.49.0.2117</Version>
+    </PackageReference>
     <PackageReference Include="ModernWpfUI">
       <Version>0.9.2</Version>
     </PackageReference>
@@ -223,6 +244,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\StatisticsTab\" />
     <Folder Include="Global\Images\DrugImages\" />
   </ItemGroup>
   <ItemGroup>

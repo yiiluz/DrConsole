@@ -29,7 +29,6 @@ namespace BE.Entities
             this.UserType = UserType.DOCTOR;
         }
 
-        [Key, Column(Order = 2)]
         public int License { get; set; }
         public DateTime Graduation { get; set; }
         public Expertize Expertize { get; set; }

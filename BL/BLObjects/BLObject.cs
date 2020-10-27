@@ -3,6 +3,7 @@ using DL;
 using DL.DLObjects;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,6 +125,11 @@ namespace BL.BLObjects
             return allPersons;
         }
 
+        public List<ActiveIngredient> GetAllActiveIngredients()
+        {
+            return DLObj.GetAllActiveIngredients();
+        }
+
         public List<Prescription> GetAllPrescriptions()
         {
             return DLObj.GetAllPrescriptions();
@@ -150,7 +156,7 @@ namespace BL.BLObjects
 
         public Drug GetDrug(string drugName)
         {
-            throw new NotImplementedException();
+            return DLObj.GetDrug(drugName);
         }
 
         public Patient GetPatient(string patientId)
@@ -229,6 +235,11 @@ namespace BL.BLObjects
         public void UpdatePatient(Patient p)
         {
             DLObj.UpdatePatient(p);
+        }
+
+        public void UpdateDrug(Drug d)
+        {
+            DLObj.UpdateDrug(d);
         }
     }
 }

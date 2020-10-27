@@ -24,17 +24,10 @@ namespace DrConsole.UserControls.Admin
     /// </summary>
     public partial class AdminTabV : UserControl
     {
-        AdminTabsVM ViewModel;
         public AdminTabV()
         {
             InitializeComponent();
-            ViewModel = new AdminTabsVM(this);
-            this.DataContext = ViewModel;
-        }
-
-        private void PersonSearchBoxChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            ((AdminTabsVM)this.DataContext).PersonSearchBoxEnterPressed.Execute(sender.Text);
-        }
+            this.DataContext = new AdminTabsVM();
+        }        
     }
 }

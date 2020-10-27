@@ -38,6 +38,7 @@
         <Border x:Name="HeaderBorder" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
             <DockPanel x:Name="HeaderContainer"/>
         </Border>
+        <DockPanel x:Name="MessageContainer" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"/>
         <Border x:Name="SettingsBorder" Grid.Row="0" Grid.Column="0">
             <DockPanel x:Name="SettingsContainer"/>
         </Border>

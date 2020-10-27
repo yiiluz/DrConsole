@@ -35,25 +35,36 @@ namespace DrConsole
             LoginContainer.Children.Add(new LoginUC());
             HeaderContainer.Children.Add(new WelcomeHeaderUC());
             SettingsContainer.Children.Add(new SettingsV());
+            try
+            {
+                AddFewEntities();
+            }
+            catch
+            {
 
+            }
+        }
+
+        private void AddFewEntities()
+        {
             DateTime x = new DateTime(1997, 12, 23);
             List<Prescription> l = new List<Prescription>();
-            Dictionary<Drug, int> dict = new Dictionary<Drug, int>();
+            Dictionary<string, int> dict = new Dictionary<string, int>();
             Patient p = new Patient(l, "Moshe", "Iluz", Gender.MALE, "209492065",
                  x, "Israel, Petah Tikva, Rabbi Yehuda 17 Apartment 1");
-            //BLObj.AddPatient(p);
+            BLObj.AddPatient(p);
 
             Doctor d = new Doctor("yona", "1111", "Yonatan", "Cohen", Gender.MALE, "111222333",
                 new DateTime(1990, 1, 1), 15462, new DateTime(2020, 1, 1), Expertize.FAMILY,
                 "Israel, Elad, Rabbi Yehoshua 32");
-            //BLObj.AddDoctor(d);
+            BLObj.AddDoctor(d);
 
-            Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts", 
+            Prescription pr = new Prescription(DateTime.Now, dict, "My head is hurts",
                 "his head hurts", 209492065, 111222333);
-            //BLObj.AddPrescription(pr);
+            BLObj.AddPrescription(pr);
             BE.Entities.Admin admin = new BE.Entities.Admin("admin", "1111", "Yitzhak", "Iluz", Gender.MALE, "12121212",
                  x, "Israel, Elad, Rabbi Meir 16 Apartment 1");
-            //BLObj.AddAdmin(admin);
+            BLObj.AddAdmin(admin);
         }
     }
 }

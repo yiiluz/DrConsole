@@ -1,0 +1,62 @@
+﻿<ui:ContentDialog x:Class="DrConsole.Admin.PersonsTab.Dialogs.AddNewDrug.AddDrugDialogV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrConsole.Admin.PersonsTab.Dialogs.AddNewDrug"
+             xmlns:enums="clr-namespace:BE.Configurations;assembly=BE"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:ConfigurationPath="clr-namespace:BE.Configurations;assembly=BE"
+             mc:Ignorable="d" >
+    <ui:ContentDialog.Resources>
+        <ObjectDataProvider x:Key="DrugType" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ConfigurationPath:DrugType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </ui:ContentDialog.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="20">
+        <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
+            <ui:SimpleStackPanel Spacing="100" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Add New Drug" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10" HorizontalAlignment="Stretch"/>
+                <ui:ProgressRing x:Name="LodaingActiveIngredients" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </ui:SimpleStackPanel>
+            <TextBlock Text="DrugName:"/>
+            <TextBox x:Name="DrugName" Text="{Binding Path=NewDrug.DrugName}" Margin="0,0,0,5"/>
+            <TextBlock Text="Manufacturer:"/>
+            <TextBox x:Name="Manufacturer" Text="{Binding Path=NewDrug.Manufacturer}" Margin="0,0,0,5"/>
+            <TextBlock Text="Miligram:"/>
+            <ui:NumberBox x:Name="Miligram" Text="{Binding Path=NewDrug.Miligram}" Margin="0,0,0,5"/>
+            <TextBlock Text="Expiration in days:"/>
+            <ui:NumberBox x:Name="Expiration" Text="{Binding Path=NewDrug.ExpirationDays}" Margin="0,0,0,5"/>
+            <TextBlock Text="Drug Type:"/>
+            <ComboBox x:Name="DrugType" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource DrugType}}" SelectedItem="{Binding Path=NewDoctor.DrugType}" Margin="0,0,0,5"/>
+            <TextBlock Text="Active Ingredient:"/>
+            <ComboBox x:Name="Active" IsSynchronizedWithCurrentItem="True" Margin="0,0,0,5" HorizontalAlignment="Stretch" SelectedItem="{Binding NewDrug.Active}" ItemsSource="{Binding ActiveIngredients}">
+                <ComboBox.InputBindings>
+                    <KeyBinding Command=""/>
+                </ComboBox.InputBindings>
+            </ComboBox>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+                <Button Content="Choose File" Command="{Binding ChooseImage}" HorizontalAlignment="Stretch" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddDrugDialogV}}}"/>
+                <TextBlock x:Name="ImgSrc" HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="{Binding Path=NewDrug.ImgSrc}"/>
+            </StackPanel>
+            <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Add" Width="70" Command="{Binding AddNewDrugClick}" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddDrugDialogV}}}"/>
+                <Button Content="Cancel" Width="70"  Command="{Binding CancelClick}" CommandParameter="{Binding RelativeSource=
+                                   {RelativeSource
+                                    Mode=FindAncestor,
+                                    AncestorType={x:Type local:AddDrugDialogV}}}"/>
+            </ui:SimpleStackPanel>
+            <ui:ProgressBar x:Name="addNewDrugProggressBar" FlowDirection="LeftToRight"/>
+        </ui:SimpleStackPanel>
+    </ScrollViewer>
+</ui:ContentDialog>

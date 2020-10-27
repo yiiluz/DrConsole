@@ -52,8 +52,9 @@ namespace BE.Entities
                    Gender == person.Gender &&
                    ID == person.ID &&
                    BirthDate == person.BirthDate &&
-                   UserType == person.UserType;
-;        }
+                   UserType == person.UserType &&
+                   Address == person.Address;
+        }
 
         public override string ToString()
         {

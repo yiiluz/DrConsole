@@ -17,36 +17,36 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </ui:ContentDialog.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
-            <TextBlock Text="Add New Admin" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
-            <TextBlock Text="Username:"/>
-            <TextBox x:Name="UserName" Text="{Binding Path=NewAdmin.UserName}" Margin="0,0,0,5"/>
-            <TextBlock Text="Password:"/>
-            <TextBox x:Name="Password" Text="{Binding Path=NewAdmin.Password}" Margin="0,0,0,5"/>
-            <TextBlock Text="First Name:"/>
-            <TextBox x:Name="FirstName" Text="{Binding Path=NewAdmin.FirstName}" Margin="0,0,0,5"/>
-            <TextBlock Text="Last Name:"/>
-            <TextBox x:Name="LastName" Text="{Binding Path=NewAdmin.LastName}" Margin="0,0,0,5"/>
-            <TextBlock Text="ID:"/>
-            <ui:NumberBox x:Name="ID" Text="{Binding Path=NewAdmin.ID}" Margin="0,0,0,10"/>
-            <TextBlock Text="Address:"/>
-            <TextBox x:Name="Address" Text="{Binding Path=NewAdmin.Address}" Margin="0,0,0,5"/>
-            <TextBlock Text="Birth Date:"/>
-            <DatePicker x:Name="BirthDate" HorizontalAlignment="Stretch" SelectedDate="{Binding Path=NewAdmin.BirthDate, StringFormat=dd-MM-yyyy}" Margin="0,0,0,5"/>
-            <TextBlock Text="Gender:"/>
-            <ComboBox x:Name="Gender" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Gender}}" SelectedItem="{Binding Path=NewAdmin.Gender}" Margin="0,0,0,5"/>
-            <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
-                <ToggleButton Content="Add" Width="70" Command="{Binding AddNewAdminClick}" CommandParameter="{Binding RelativeSource=
+    <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="20">
+            <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
+                <TextBlock Text="Add New Admin" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
+                <TextBlock Text="Username:"/>
+                <TextBox x:Name="UserName" Text="{Binding Path=NewAdmin.UserName}" Margin="0,0,0,5"/>
+                <TextBlock Text="Password:"/>
+                <TextBox x:Name="Password" Text="{Binding Path=NewAdmin.Password}" Margin="0,0,0,5"/>
+                <TextBlock Text="First Name:"/>
+                <TextBox x:Name="FirstName" Text="{Binding Path=NewAdmin.FirstName}" Margin="0,0,0,5"/>
+                <TextBlock Text="Last Name:"/>
+                <TextBox x:Name="LastName" Text="{Binding Path=NewAdmin.LastName}" Margin="0,0,0,5"/>
+                <TextBlock Text="ID:"/>
+                <ui:NumberBox x:Name="ID" Text="{Binding Path=NewAdmin.ID}" Margin="0,0,0,10"/>
+                <TextBlock Text="Address:"/>
+                <TextBox x:Name="Address" Text="{Binding Path=NewAdmin.Address}" Margin="0,0,0,5"/>
+                <TextBlock Text="Birth Date:"/>
+                <DatePicker x:Name="BirthDate" HorizontalAlignment="Stretch" SelectedDate="{Binding Path=NewAdmin.BirthDate, StringFormat=dd-MM-yyyy}" Margin="0,0,0,5"/>
+                <TextBlock Text="Gender:"/>
+                <ComboBox x:Name="Gender" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Gender}}" SelectedItem="{Binding Path=NewAdmin.Gender}" Margin="0,0,0,5"/>
+                <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Add" Width="70" Command="{Binding AddNewAdminClick}" CommandParameter="{Binding RelativeSource=
                                    {RelativeSource
                                     Mode=FindAncestor,
                                     AncestorType={x:Type local:AddAdminDialogV}}}"/>
-                <Button Content="Cancel" Width="70"  Command="{Binding CancelClick}" CommandParameter="{Binding RelativeSource=
+                    <Button Content="Cancel" Width="70"  Command="{Binding CancelClick}" CommandParameter="{Binding RelativeSource=
                                    {RelativeSource
                                     Mode=FindAncestor,
                                     AncestorType={x:Type local:AddAdminDialogV}}}"/>
+                </ui:SimpleStackPanel>
+                <ui:ProgressBar x:Name="addNewAdminProggressBar" FlowDirection="LeftToRight"/>
             </ui:SimpleStackPanel>
-            <ui:ProgressBar x:Name="addNewAdminProggressBar" FlowDirection="LeftToRight"/>
-        </ui:SimpleStackPanel>
     </ScrollViewer>
 </ui:ContentDialog>

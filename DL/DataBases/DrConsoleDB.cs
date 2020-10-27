@@ -20,5 +20,6 @@ namespace DL.DataBases
         public DbSet<Admin> AdminsDB { get; set; }
         public DbSet<Drug> DrugsDB { get; set; }
         public DbSet<Prescription> PrescriptionDB { get; set; }
+        public DbSet<ActiveIngredient> ActiveIngredientsDB { get; set; }
     }
 }

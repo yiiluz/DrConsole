@@ -23,6 +23,7 @@ namespace BL
         void UpdatePatient(Patient p); 
         void UpdateDoctor(Doctor d);
         void UpdateAdmin(Admin a);
+        void UpdateDrug(Drug d);
 
 
         List<Prescription> GetPrescriptionsByDateRange(DateTime start, DateTime end);
@@ -31,6 +32,7 @@ namespace BL
         List<Admin> GetAllAdmins();
         List<Drug> GetAllDrugs();
         List<Prescription> GetAllPrescriptions();
+        List<ActiveIngredient> GetAllActiveIngredients();
 
         // Doctor
         void AddPrescription(Prescription prescription);

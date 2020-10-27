@@ -14,7 +14,8 @@ namespace BE.Entities
     {
         public Drug() { }
 
-        public Drug(string drugName, int expirationDays, int miligram, string manufacturer, DrugType drugType, string imgSrc)
+        public Drug(string drugName, int expirationDays, int miligram, string manufacturer, 
+            DrugType drugType, string imgSrc, string active)
         {
             DrugName = drugName;
             ExpirationDays = expirationDays;
@@ -22,6 +23,7 @@ namespace BE.Entities
             Manufacturer = manufacturer;
             DrugType = drugType;
             ImgSrc = imgSrc;
+            Active = active;
         }
 
         [Key]
@@ -31,24 +33,31 @@ namespace BE.Entities
         public string Manufacturer { get; set; }
         public DrugType DrugType { get; set; }
         public string ImgSrc { get; set; }
-        List<ActiveIngredient> ActiveIngredients { get; set; }
-        public string ActiveIngredientsString
+        public string ImgSrcFullPath 
         {
             get
             {
-                string ingrediants = "";
-                foreach (var item in ActiveIngredients)
-                {
-                    ingrediants += item.ToString() + ", ";
-                }
-                return ingrediants.Substring(0, ingrediants.Length -2);
+                return System.IO.Path.GetFullPath(ImgSrc);
             }
+        }
+        public string Active { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Drug drug &&
+                   DrugName == drug.DrugName &&
+                   ExpirationDays == drug.ExpirationDays &&
+                   Miligram == drug.Miligram &&
+                   Manufacturer == drug.Manufacturer &&
+                   DrugType == drug.DrugType &&
+                   ImgSrc == drug.ImgSrc &&
+                   Active == drug.Active;
         }
 
         public override string ToString()
         {
             return String.Format("Drug Name: {0}, Manufacturer: {1}, Ingredient: {2}, Miligram: {3}, Image Path: {4}, Drug Type: {5}, Expiration in days: {6}.",
-                DrugName, Manufacturer, ActiveIngredientsString, Miligram, ImgSrc, DrugType, ExpirationDays);
+                DrugName, Manufacturer, Active, Miligram, ImgSrc, DrugType, ExpirationDays);
         }
     }
 }

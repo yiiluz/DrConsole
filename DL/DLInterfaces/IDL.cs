@@ -14,11 +14,15 @@ namespace DL
         void AddPatient(Patient patient);
         void AddDoctor(Doctor doctor);
         void AddDrug(Drug drug);
+        void AddActiveIngredient(ActiveIngredient active);
+        void DeleteActiveIngredient(ActiveIngredient active);
         void DeleteAdmin(Admin id);
         void DeletePatient(Patient patient);
         void DeleteDoctor(Doctor doctor);
         void DeleteDrug(Drug drug);
+
         List<Patient> GetAllPatients();
+        List<ActiveIngredient> GetAllActiveIngredients();
         List<Doctor> GetAllDoctors();
         List<Admin> GetAllAdmins();
         List<Drug> GetAllDrugs();
@@ -26,6 +30,7 @@ namespace DL
         void UpdatePatient(Patient p);
         void UpdateDoctor(Doctor d);
         void UpdateAdmin(Admin a);
+        void UpdateDrug(Drug d);
 
         // Doctor
         void AddPrescription(Prescription prescription);

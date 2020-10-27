@@ -12,7 +12,7 @@ namespace BE.Entities
     public class Prescription
     {
         public Prescription() { }
-        public Prescription(DateTime date, Dictionary<Drug, int> drugDurationPairs,
+        public Prescription(DateTime date, Dictionary<string, int> drugDurationPairs,
             string patientComplaint, string doctorSummary, int patientId, int doctorId)
         {
             Date = date;
@@ -27,7 +27,7 @@ namespace BE.Entities
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.None)]
         public int PrescriptionID { get; set; }
         public DateTime Date { get; set; }
-        public Dictionary<Drug, int> DrugDurationPairs { get; set; }
+        public Dictionary<string, int> DrugDurationPairs { get; set; }
         public String PatientComplaint { get; set; }
         public String DoctorSummary { get; set; }
         public int PatientID { get; set; }
@@ -40,7 +40,7 @@ namespace BE.Entities
             return obj is Prescription prescription &&
                    PrescriptionID == prescription.PrescriptionID &&
                    Date == prescription.Date &&
-                   EqualityComparer<Dictionary<Drug, int>>.Default.Equals(DrugDurationPairs, prescription.DrugDurationPairs) &&
+                   EqualityComparer<Dictionary<string, int>>.Default.Equals(DrugDurationPairs, prescription.DrugDurationPairs) &&
                    PatientComplaint == prescription.PatientComplaint &&
                    DoctorSummary == prescription.DoctorSummary &&
                    PatientID == prescription.PatientID &&

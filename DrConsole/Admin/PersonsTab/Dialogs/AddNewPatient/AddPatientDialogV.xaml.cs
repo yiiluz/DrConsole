@@ -22,13 +22,10 @@ namespace DrConsole.Admin.PersonsTab.Dialogs.Patient
     /// </summary>
     public partial class AddPatientDialogV : ContentDialog
     {
-        AdminTabsVM VM;
-
-        public AddPatientDialogV(AdminTabsVM VM)
+        public AddPatientDialogV()
         {
             InitializeComponent();
-            this.VM = VM;
-            this.DataContext = new AddPatientDialogVM(VM);
+            this.DataContext = new AddPatientDialogVM();
         }
     }
 }

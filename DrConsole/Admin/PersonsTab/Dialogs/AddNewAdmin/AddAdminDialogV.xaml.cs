@@ -24,13 +24,10 @@ namespace DrConsole.Dialogs.Admin.View
     /// </summary>
     public partial class AddAdminDialogV : ContentDialog
     {
-        AdminTabsVM VM;
-
-        public AddAdminDialogV(AdminTabsVM VM)
+        public AddAdminDialogV()
         {
-            this.VM = VM;
             InitializeComponent();
-            this.DataContext = new AddAdminDialogVM(VM);
+            this.DataContext = new AddAdminDialogVM();
         }
     }
 }

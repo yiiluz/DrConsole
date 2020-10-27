@@ -23,7 +23,7 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </ui:ContentDialog.Resources>
-    <ScrollViewer>
+    <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="20">
         <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
             <TextBlock Text="Add New Doctor" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
             <TextBlock Text="Username:"/>
@@ -50,7 +50,7 @@
             <ComboBox x:Name="Expertize" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Expertize}}" SelectedItem="{Binding Path=NewDoctor.Expertize}" Margin="0,0,0,5"/>
 
             <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
-                <ToggleButton Content="Add" Width="70" Command="{Binding AddNewDoctorClick}" CommandParameter="{Binding RelativeSource=
+                <Button Content="Add" Width="70" Command="{Binding AddNewDoctorClick}" CommandParameter="{Binding RelativeSource=
                                    {RelativeSource
                                     Mode=FindAncestor,
                                     AncestorType={x:Type local:AddDoctorDialogV}}}"/>

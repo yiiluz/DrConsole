@@ -4,11 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DrConsole.UserControls.Admin"
+             xmlns:vmns="clr-namespace:DrConsole.ViewModels"
              xmlns:ui="http://schemas.modernwpf.com/2019"
              mc:Ignorable="d" 
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              d:DesignHeight="450" d:DesignWidth="850">
-    <Grid>
+    <Grid >
         <TabControl Grid.RowSpan="2">
             
             <TabItem x:Name="PersonsTab" Header="Persons Data">
@@ -20,14 +21,14 @@
                     </Grid.RowDefinitions>
                     <ui:SimpleStackPanel Spacing="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 0 0">
                         <ui:AutoSuggestBox x:Name="PersonSearchBox" PlaceholderText="Search" QueryIcon="Find" Width="200"
-                            TextChanged="PersonSearchBoxChanged"/>
+                           Text="{Binding SearchForPersonText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Content="Add New Admin" Command="{Binding AddNewAdminClick}"/>
                         <Button Content="Add New Doctor" Command="{Binding AddNewDoctorClick}"/>
                         <Button Content="Add New Patient" Command="{Binding AddNewPatientClick}"/>
-                        <Button Content="Save All Changes" Command="{Binding SaveAllChangesClick}"/>
+                        <Button Content="Save Current Changes" Command="{Binding SaveAllChangesClick}"/>
                         <Button Content="Refresh" Command="{Binding RefreshTableClick}"/>
                     </ui:SimpleStackPanel>
-                    <DataGrid x:Name="PersonsDataGrid" CanUserAddRows="False" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding Persons}">
+                    <DataGrid x:Name="PersonsDataGrid" CanUserAddRows="False" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding PersonsToShow}" SelectedValue="{Binding SelectedPerson, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
                             <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
@@ -40,7 +41,7 @@
                         </DataGrid.Columns>
                         <DataGrid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Delete User" Command="{Binding DeletePerson}"  CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                                <MenuItem Header="Delete User" Command="{Binding DeletePerson}"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                     </DataGrid>
@@ -55,12 +56,12 @@
                     </Grid.RowDefinitions>
                     <ui:SimpleStackPanel Spacing="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 0 0">
                         <ui:AutoSuggestBox x:Name="DrugsSearchBox" PlaceholderText="Search" QueryIcon="Find" Width="200"
-                            TextChanged="PersonSearchBoxChanged"/>
+                                            Text="{Binding SearchForDrugText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Content="Add New Drug" Command="{Binding AddNewDrugClick}"/>
-                        <Button Content="Save All Changes" Command="{Binding SaveAllChangesClick}"/>
+                        <Button Content="Save Current Changes" Command="{Binding SaveAllChangesClick}"/>
                         <Button Content="Refresh" Command="{Binding RefreshTableClick}"/>
                     </ui:SimpleStackPanel>
-                    <DataGrid x:Name="DrugsDataGrid" CanUserAddRows="False" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding Drugs}">
+                    <DataGrid x:Name="DrugsDataGrid" CanUserAddRows="False" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding DrugsToShow}" SelectedItem="{Binding SelectedDrug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Drug Name"  Binding="{Binding DrugName}"/>
                             <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
@@ -68,18 +69,18 @@
                             <DataGridTextColumn Header="RXCUI" Binding="{Binding Rxcui}"/>
                             <DataGridTextColumn Header="Drug Type" Binding="{Binding DrugType}"/>
                             <DataGridTextColumn Header="Expiration" Binding="{Binding ExpirationDays}"/>
-                            <DataGridTextColumn Header="Active Ingredients" Binding="{Binding ActiveIngredientsString}"/>
+                            <DataGridTextColumn Header="Active Ingredients" Binding="{Binding Active}"/>
                             <DataGridTemplateColumn Header="Image">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image Source="{Binding ImgSrc}" />
+                                            <Image Source="{Binding ImgSrcFullPath}" Height="100" Width="100"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                         </DataGrid.Columns>
                         <DataGrid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Delete User" Command="{Binding DeleteDrug}"  CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                                <MenuItem Header="Delete Drug" Command="{Binding DeleteDrug}"  CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                     </DataGrid>

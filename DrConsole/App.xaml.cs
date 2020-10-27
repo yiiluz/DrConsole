@@ -1,4 +1,5 @@
 ﻿using BE.Entities;
+using DrConsole.Global.Header;
 using ModernWpf;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,13 @@ namespace DrConsole
                     ((DockPanel)dock).Children.Clear();
                 }
             }
+        }
+
+        public void NotifyMessage(string message)
+        {
+            mainWindow.HeaderContainer.Children.Clear();
+            mainWindow.MessageContainer.Children.Clear();
+            mainWindow.MessageContainer.Children.Add(new NotifyMessageV(message));
         }
     }
 }

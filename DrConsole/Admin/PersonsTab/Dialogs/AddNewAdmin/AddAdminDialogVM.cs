@@ -18,17 +18,15 @@ namespace DrConsole.UserControls.Dialogs.Admin.ViewModel
     {
         public BE.Entities.Admin NewAdmin { get; set; }
         private AddAdminDialogM model;
-        private AdminTabsVM mainViewVM;
 
         public IAsyncCommand<object> AddNewAdminClick { get; set; }
         public ICommand CancelClick { get; set; }
 
 
-        public AddAdminDialogVM(AdminTabsVM VM)
+        public AddAdminDialogVM()
         {
             NewAdmin = new BE.Entities.Admin();
             model = new AddAdminDialogM();
-            this.mainViewVM = VM;
             CancelClick = new Command<object>(ExecuteCancel, CanExecuteCancel);
             AddNewAdminClick = new AsyncCommand<object>(ExecuteAsyncAdd, CanExecuteAdd);
         }
@@ -75,12 +73,11 @@ namespace DrConsole.UserControls.Dialogs.Admin.ViewModel
             });
             if (errorMessage == null)
             {
-                mainViewVM.Persons.Add(NewAdmin);
                 addAdminUC.Hide();
             }
             else
             {
-                MessageBox.Show("Error: " + errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                ((App)(App.Current)).NotifyMessage("Error: " + errorMessage);
             }
             addAdminUC.addNewAdminProggressBar.IsIndeterminate = false;
         }

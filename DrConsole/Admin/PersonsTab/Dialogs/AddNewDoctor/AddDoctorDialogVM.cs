@@ -16,16 +16,14 @@ namespace DrConsole.Dialogs.Doctor.ViewModel
     {
         public BE.Entities.Doctor NewDoctor { get; set; }
         private AddDoctorDialogM model;
-        private AdminTabsVM mainViewVM;
 
         public IAsyncCommand<object> AddNewDoctorClick { get; set; }
         public ICommand CancelClick { get; set; }
 
-        public AddDoctorDialogVM(AdminTabsVM VM)
+        public AddDoctorDialogVM()
         {
             NewDoctor = new BE.Entities.Doctor();
             model = new AddDoctorDialogM();
-            this.mainViewVM = VM;
             CancelClick = new Command<object>(ExecuteCancel, CanExecuteCancel);
             AddNewDoctorClick = new AsyncCommand<object>(ExecuteAsyncAdd, CanExecuteAdd);
         }
@@ -75,7 +73,6 @@ namespace DrConsole.Dialogs.Doctor.ViewModel
             });
             if (errorMessage == null)
             {
-                mainViewVM.Persons.Add(NewDoctor);
                 addDoctorUC.Hide();
             }
             else

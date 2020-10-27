@@ -13,18 +13,18 @@ namespace DrConsole.Models
     public class AdminTabsM
     {
         IBL BLObj = new BLObject();
-        public ObservableCollection<Person> Persons
+        public List<Person> Persons
         {
             get
             {
-                return new ObservableCollection<Person>(BLObj.GetAllPersons());
+                return BLObj.GetAllPersons();
             }
         }
-        public ObservableCollection<Drug> Drugs
+        public List<Drug> Drugs
         {
             get
             {
-                return new ObservableCollection<Drug>(BLObj.GetAllDrugs());
+                return BLObj.GetAllDrugs();
             }
         }
 
@@ -37,12 +37,19 @@ namespace DrConsole.Models
             BLObj.DeletePerson(p);
         }
 
+        public void DeleteDrug(Drug d)
+        {
+            BLObj.DeleteDrug(d);
+        }
+
         public Person GetPersonByID(string id)
         {
             return BLObj.GetPersonByID(id);
         }
 
-        public void UpdateDoctor(Doctor d)
+        public void UpdateDoctor(BE.Entities.Doctor d)
+
+
         {
             BLObj.UpdateDoctor(d);
         }
@@ -55,6 +62,16 @@ namespace DrConsole.Models
         public void UpdatePatient(Patient p)
         {
             BLObj.UpdatePatient(p);
+        }
+
+        public void UpdateDrug(Drug d)
+        {
+            BLObj.UpdateDrug(d);
+        }
+
+        public Drug GetDrugByName(string name)
+        {
+            return BLObj.GetDrug(name);
         }
     }
 }

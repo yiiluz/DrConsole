@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:DrConsole.Global.Settings"
              mc:Ignorable="d" 
              xmlns:ui="http://schemas.modernwpf.com/2019">
-    <ui:LayoutPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ui:ToggleSwitch OffContent="Dark" OnContent="Light" ui:ToggleSwitch.Toggled="ChangeTheme"/>
+    <UserControl.Resources>
+        <local:SettingsVM x:Key="VM"/>
+    </UserControl.Resources>
+    <ui:LayoutPanel DataContext="{StaticResource VM}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ui:ToggleSwitch OffContent="Dark" OnContent="Light" IsOn="{Binding ThemeState}"/>
     </ui:LayoutPanel>
 </UserControl>

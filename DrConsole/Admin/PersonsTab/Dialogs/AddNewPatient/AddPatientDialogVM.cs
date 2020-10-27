@@ -14,16 +14,14 @@ namespace DrConsole.Admin.PersonsTab.Dialogs.Patient
     {
         public BE.Entities.Patient NewPatient { get; set; }
         private AddPatientDialogM model;
-        private AdminTabsVM mainViewVM;
 
         public IAsyncCommand<object> AddNewPatientClick { get; set; }
         public ICommand CancelClick { get; set; }
 
-        public AddPatientDialogVM(AdminTabsVM VM)
+        public AddPatientDialogVM()
         {
             NewPatient = new BE.Entities.Patient();
             model = new AddPatientDialogM();
-            this.mainViewVM = VM;
             CancelClick = new Command<object>(ExecuteCancel, CanExecuteCancel);
             AddNewPatientClick = new AsyncCommand<object>(ExecuteAsyncAdd, CanExecuteAdd);
         }
@@ -49,8 +47,7 @@ namespace DrConsole.Admin.PersonsTab.Dialogs.Patient
                !string.IsNullOrEmpty(addPatientUC.LastName.Text) &&
                !string.IsNullOrEmpty(addPatientUC.ID.Text) &&
                !string.IsNullOrEmpty(addPatientUC.Address.Text) &&
-               !string.IsNullOrEmpty(addPatientUC.BirthDate.Text) &&
-               !string.IsNullOrEmpty(addPatientUC.UserName.Text);
+               !string.IsNullOrEmpty(addPatientUC.BirthDate.Text);
         }
         public async Task ExecuteAsyncAdd(object parameter)
         {
@@ -70,7 +67,6 @@ namespace DrConsole.Admin.PersonsTab.Dialogs.Patient
             });
             if (errorMessage == null)
             {
-                mainViewVM.Persons.Add(NewPatient);
                 addPatientUC.Hide();
             }
             else

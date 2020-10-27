@@ -17,13 +17,9 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </ui:ContentDialog.Resources>
-    <ScrollViewer>
+    <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="20">
         <ui:SimpleStackPanel Orientation="Vertical" x:Name="ContentDialogStackPanel">
             <TextBlock Text="Add New Patient" Style="{StaticResource HeaderTextBlockStyle}" FontSize="20" Margin="0,0,0,10"/>
-            <TextBlock Text="Username:"/>
-            <TextBox x:Name="UserName" Text="{Binding Path=NewPatient.UserName}" Margin="0,0,0,5"/>
-            <TextBlock Text="Password:"/>
-            <TextBox x:Name="Password" Text="{Binding Path=NewPatient.Password}" Margin="0,0,0,5"/>
             <TextBlock Text="First Name:"/>
             <TextBox x:Name="FirstName" Text="{Binding Path=NewPatient.FirstName}" Margin="0,0,0,5"/>
             <TextBlock Text="Last Name:"/>
@@ -37,7 +33,7 @@
             <TextBlock Text="Gender:"/>
             <ComboBox x:Name="Gender" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource Gender}}" SelectedItem="{Binding Path=NewPatient.Gender}" Margin="0,0,0,5"/>
             <ui:SimpleStackPanel Margin="20" Spacing="50" Orientation="Horizontal" HorizontalAlignment="Center">
-                <ToggleButton Content="Add" Width="70" Command="{Binding AddNewPatientClick}" CommandParameter="{Binding RelativeSource=
+                <Button Content="Add" Width="70" Command="{Binding AddNewPatientClick}" CommandParameter="{Binding RelativeSource=
                                    {RelativeSource
                                     Mode=FindAncestor,
                                     AncestorType={x:Type local:AddPatientDialogV}}}"/>
